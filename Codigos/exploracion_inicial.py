@@ -19,6 +19,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+import os 
 #---------------------------------------------------------
 
 pd.set_option('display.max_columns', None)
@@ -111,3 +112,15 @@ for i, var in enumerate(variables_interes):
     axes[2, i].set_xlabel(var)
 plt.tight_layout()
 plt.show()
+
+#---------------------------------------------------------
+
+#---------------------------------------------------------
+#Matriz de correlación
+plt.figure(figsize=(10, 8))
+corr = df.corr()
+sns.heatmap(corr, cmap='coolwarm', center =0)
+plt.title('Matriz de Correlación')
+plt.tight_layout()
+plt.show()
+#---------------------------------------------------------
