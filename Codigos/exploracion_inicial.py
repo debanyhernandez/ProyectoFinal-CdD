@@ -110,8 +110,11 @@ for i, var in enumerate(variables_interes):
     sns.boxplot(x=col_data, ax=axes[2, i], color='lightgreen')
     axes[2, i].set_title(f'Boxplot de {var}')
     axes[2, i].set_xlabel(var)
+#Guardamos el gráfico
+plt.savefig('./Figures/variables_clave_exploracion.png', dpi=300)
 plt.tight_layout()
 plt.show()
+plt.close()
 
 #---------------------------------------------------------
 
@@ -121,6 +124,8 @@ plt.figure(figsize=(10, 8))
 corr = df.corr()
 sns.heatmap(corr, cmap='coolwarm', center =0)
 plt.title('Matriz de Correlación')
+plt.savefig('./Figures/matriz_correlacion.png', dpi=300)
 plt.tight_layout()
 plt.show()
+plt.close()
 #---------------------------------------------------------
