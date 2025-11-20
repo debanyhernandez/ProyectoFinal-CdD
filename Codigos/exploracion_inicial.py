@@ -90,7 +90,7 @@ print("\n --- Exploración gráfica inicial de variables clave ---")
 print("\n Variables de interés:", variables_interes)
 
 #Gráfica compuesta: Histograma, Densidad y Boxplot
-fig, axes = plt.subplots(3, len(variables_interes), figsize=(4 * len(variables_interes), 12))
+fig, axes = plt.subplots(3, len(variables_interes), figsize=(4 * len(variables_interes), 10))
 if len(variables_interes) == 1:
     axes = axes.reshape(3,1)  # Asegura que axes sea 2D incluso si hay una sola variable
 for i, var in enumerate(variables_interes):
@@ -113,7 +113,6 @@ for i, var in enumerate(variables_interes):
 #Guardamos el gráfico
 plt.savefig('./Figures/variables_clave_exploracion.png', dpi=300)
 plt.tight_layout()
-plt.show()
 plt.close()
 
 #---------------------------------------------------------
@@ -126,6 +125,8 @@ sns.heatmap(corr, cmap='coolwarm', center =0)
 plt.title('Matriz de Correlación')
 plt.savefig('./Figures/matriz_correlacion.png', dpi=300)
 plt.tight_layout()
-plt.show()
 plt.close()
 #---------------------------------------------------------
+
+#---------------------------------------------------------
+#Limpieza y tratamiento de datos problemáticos
