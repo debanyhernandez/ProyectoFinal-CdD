@@ -14,8 +14,6 @@ import seaborn as sns
 import os
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
-from sklearn.cluster import KMeans
-from sklearn.metrics import silhouette_score
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -120,79 +118,12 @@ if num_componentes >= 2:
     plt.show()
     plt.close()
 
-#--- Clustering con KMeans ---
-#Determinamos el número k óptimo de clusters usando el método del codo
-inercia = []
-k_range = range(2, 11)
-silhouette_values = []
+#---------------------------------------------------------
+#Guardamos los datos transformados por PCA para su uso en clustering
+df_pca.to_csv('./data/df_pca_para_clustering.csv', index=False)
+print("\n --- Datos transformados por PCA guardados en './data/df_pca_para_clustering.csv' ---")
 
-for k in k_range:
-    kmeans = KMeans(n_clusters=k, random_state=42, n_init='auto')
-    kmeans.fit(df_pca)
-    inercia.append(kmeans.inertia_)
-    score = silhouette_score(df_pca, kmeans.labels_)
-    silhouette_values.append(score)
-
-#Gráfica del método del codo
-plt.figure(figsize=(10, 6))
-plt.plot(k_range, inercia, marker='o', linestyle='--')
-plt.title('Método del Codo para Determinar el Número Óptimo de Clusters (KMeans)')
-plt.xlabel('Número de Clusters (k)')
-plt.ylabel('Inercia')
-plt.grid(True, alpha=0.3)
-plt.xticks(k_range)
-plt.tight_layout()
-plt.savefig('./Figures/metodo_del_codo_kmeans.png', dpi=300)
-plt.show()
-plt.close()
-
-#Gráfica del silhouette score vs k 
-plt.figure(figsize=(10, 6))
-plt.plot(k_range, silhouette_values, marker='o', linestyle='--', color='deeppink')
-plt.title('Silhouette Score vs Número de Clusters (KMeans)')
-plt.xlabel('Número de Clusters (k)')
-plt.ylabel('Silhouette Score')
-plt.grid(True, alpha=0.3)
-plt.xticks(k_range)
-plt.tight_layout()
-plt.savefig('./Figures/silhouette_score_kmeans.png', dpi=300)
-plt.show()
-plt.close()
-
-print("\n --- Resultados del método del codo y silhouette score ---")
-for k, s in zip(k_range, silhouette_values):
-    print(f"k={k}: Silhouette Score={s:.4f}")
-
-#Elección automática del número óptimo de clusters según Silhouette máximo
-optimal_k = k_range[int(np.argmax(silhouette_values))]
-print(f"\n Número óptimo de clusters seleccionado automáticamente según Silhouette Score: k={optimal_k}")
-
-
-#Ajuste final de KMeans con el número óptimo de clusters
-kmeans_final = KMeans(n_clusters=optimal_k, random_state=42, n_init='auto')
-clusters_final = kmeans_final.fit_predict(df_pca)
-
-#Añadimos la asignación de clusters al DataFrame original
-df_resultado = df_clustering.copy()
-df_resultado['Cluster'] = clusters_final
-
-#Visualización de los clusters en los primeros dos componentes principales
-if num_componentes >= 2:
-    plt.figure(figsize=(10, 8))
-    scatter = plt.scatter(
-        df_pca['PC1'], df_pca['PC2'],
-        c=clusters_final,
-        cmap='tab10',
-        alpha=0.6
-    )
-    plt.xlabel(f'PC1({pca_final.explained_variance_ratio_[0]:.2%} varianza)')
-    plt.ylabel(f'PC2({pca_final.explained_variance_ratio_[1]:.2%} varianza)')
-    plt.title('Clusters Identificados por KMeans en el Espacio PCA(PC1 vs PC2)')
-    plt.colorbar(scatter, label='Cluster')
-    plt.grid(True, alpha=0.3)
-    plt.savefig('./Figures/clusters_kmeans_pc1_pc2.png', dpi=300)
-    plt.tight_layout()
-    plt.show()
-    plt.close()
-
-
+#Tambien guardamos el DataFrame original limpio para el perfilamiento 
+df_clustering.to_csv('./data/df_limpio_para_perfilamiento.csv', index=False)
+print("\n --- DataFrame original limpio guardado en './data/df_limpio_para_perfilamiento.csv' ---")
+#---------------------------------------------------------
