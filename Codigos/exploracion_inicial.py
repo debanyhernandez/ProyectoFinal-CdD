@@ -201,3 +201,8 @@ df_clustering = df.drop(columns=['SeriousDlqin2yrs'])
 print("\n --- Dimensión final del DataFrame para clustering (filas, columnas) ---", df_clustering.shape)
 print("Todas las variables están limpias y listas")
 #-------------------------------------------------------------
+
+#Guardamos el DataFrame limpio para análisis posteriores
+df_clustering.to_csv('./data/df_limpio_para_clustering.csv', index=False)
+print("\n DataFrame limpio guardado en './data/df_limpio_para_clustering.csv'")
+
