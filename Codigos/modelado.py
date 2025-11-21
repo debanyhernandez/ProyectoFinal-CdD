@@ -16,6 +16,8 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
+import warnings
+warnings.filterwarnings('ignore')
 
 #Confuguración de pandas
 pd.set_option('display.max_columns', None)
@@ -192,4 +194,5 @@ if num_componentes >= 2:
     plt.tight_layout()
     plt.show()
     plt.close()
+
 
