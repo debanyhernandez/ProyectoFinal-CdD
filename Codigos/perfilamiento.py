@@ -18,6 +18,15 @@ warnings.filterwarnings('ignore')
 #Configuración de pandas para visualización
 pd.set_option('display.max_columns', None)
 pd.set_option('display.width', 1000)
+plt.style.use('seaborn-v0_8-whitegrid')
+paleta_color_dict= {
+    '0': '#FF69B4',
+    '1': '#87CEEB',
+    '2': '#98FB98',
+    '3': "#DDA7F3",
+    '4': '#FFDAB9'
+}
+paleta_color_list = list(paleta_color_dict.values())
 #----------------------------------------------------------
 
 #----------------------------------------------------------
@@ -51,12 +60,61 @@ variables_clave = [
 fig, axes = plt.subplots(2, 2, figsize=(14,10))
 axes = axes.flatten()
 for i, col in enumerate(variables_clave):
-    sns.boxplot(x= 'Cluster', y =col, data=df_resultado, ax=axes[i], palette='tab10')
-    axes[i].set_title(f'Distribución de {col} por CLuster')
+    sns.boxplot(x= 'Cluster', y =col, data=df_resultado, ax=axes[i], palette=paleta_color_dict)
+    axes[i].set_title(f'Distribución de {col} por Cluster', fontsize=14)
     axes[i].grid(axis='y', alpha=0.5)
 
 plt.tight_layout()
 plt.savefig('./Figures/perfil_boxplots_clusters.png', dpi=300)
 plt.show()
 plt.close()
+
+#Gráfica de Radar
+df_perfil_grafica = perfil_final.drop(columns=['Conteo', 'Porcentaje'])
+
+#Eliminamos el Cluster 1 (Outlier) ya que distorsiona la escala completamente
+df_perfil_grafica = df_perfil_grafica.drop(index=1, errors='ignore')
+
+#Estandarizamos los valores usando el escalado Min-Max
+#Esto nos ayuda a que todas las variables estén en una escala de 0 a 1 para poder compararlas
+df_norm = df_perfil_grafica.apply(lambda x: (x - x.min()) / (x.max() - x.min()), axis=0)
+
+def create_radar(df, title, palette):
+    '''
+    Función para crear el gráfico de radar
+    '''
+    categories = list(df.columns)
+    N = len(categories)
+
+    angles = [n / float(N) * 2 * np.pi for n in range(N)]
+    angles += angles[:1]
+
+    fig, ax = plt.subplots(figsize=(10,10), subplot_kw=dict(polar=True))
+
+
+    for cluster_id in df.index:
+        values = df.loc[cluster_id].values.flatten().tolist()
+        values += values[:1]
+        color = paleta_color_dict[str(cluster_id)]
+        ax.plot(angles, values, linewidth =2, linestyle='solid', label=f'Cluster {cluster_id}', color = color)
+        ax.fill(angles, values, color=color, alpha=0.25)
+
+    #Configuración de los ejes y etiquetas
+    ax.set_theta_offset(np.pi / 2)
+    ax.set_theta_direction(-1)
+    ax.set_xticks(angles[:-1])
+    ax.set_xticklabels(categories, fontsize=10)
+    
+    # Eje y (escala de 0 a 1)
+    ax.set_yticks([0.2, 0.4, 0.6, 0.8, 1.0])
+    ax.set_yticklabels(["20%", "40%", "60%", "80%", "100%"], color="grey", size=8)
+    ax.set_ylim(0, 1)
+    
+    plt.title(title, size=16, y=1.1)
+    plt.legend(loc='lower left', bbox_to_anchor=(1.05, 0.05), fontsize=10)
+    plt.savefig('./Figures/segmentacion_radar_plot.png', dpi=300)
+    plt.show()
+    plt.close()
+
+create_radar(df_norm, f'Perfiles de Clientes - {len(df_norm.index)} Clusters (Estandarido)', paleta_color_dict)
 
