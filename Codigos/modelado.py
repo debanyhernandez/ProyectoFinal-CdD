@@ -57,20 +57,22 @@ plt.bar(
     range(1, len(pca.explained_variance_ratio_) + 1),
     pca.explained_variance_ratio_,
     alpha=0.5,
-    label='Varianza explicada por componente'
+    label='Varianza explicada por componente',
+    color = "#C37EB6",
 )
 #Línea: varianza explicada acumulada
 plt.plot(
     range(1, len(radio_var_explicada) + 1),
     radio_var_explicada,
     marker='o',
-    color='purple',
+    color="#9570B1",
+    alpha = 0.8, 
     label='Varianza explicada acumulada'
 )
 plt.title('Varianza Explicada por Componentes Principales (PCA)')
 plt.xlabel('Componente principal')
 plt.ylabel('Proporción de varianza')
-plt.axhline(y=0.85, color='green', linestyle='--', label='85% de varianza explicada')
+plt.axhline(y=0.85, color="#FC3E6D", linestyle='--', linewidth=2, label='85% de la varianza explicada')
 plt.grid(True, alpha=0.3)
 plt.legend()
 plt.savefig('./Figures/varianza_explicada_pca.png', dpi=300)
@@ -102,14 +104,15 @@ print(df_loadings.iloc[:, min(4, num_componentes)])
 #Gráficos de los loadings para PC1 y PC2
 if num_componentes >= 2:
     fig, axes = plt.subplots(1, 2, figsize=(14, 6))
-
+    color_pc1 = "#F4ACB7"
+    color_pc2 = "#B5EAD7"
     # Loadings para PC1
-    axes[0].barh(df_clustering.columns, df_loadings['PC1'], color='skyblue')
+    axes[0].barh(df_clustering.columns, df_loadings['PC1'], color=color_pc1)
     axes[0].set_title('Loadings de las Variables para PC1')
     axes[0].set_xlabel('Contribución')
 
     # Loadings para PC2
-    axes[1].barh(df_clustering.columns, df_loadings['PC2'], color='lightgreen')
+    axes[1].barh(df_clustering.columns, df_loadings['PC2'], color=color_pc2)
     axes[1].set_title('Loadings de las Variables para PC2')
     axes[1].set_xlabel('Contribución')
 

@@ -26,8 +26,8 @@ pd.set_option('display.max_columns', None)
 pd.set_option('display.max_rows', 100)
 pd.set_option("display.width", None)
 pd.set_option('display.max_colwidth', None)
-
-
+#Diseño de las gráficas
+sns.set(style="whitegrid")
 
 #---------------------------------------------------------
 #Carga del DataFrame
@@ -78,7 +78,6 @@ print("\n --- Dimensión final de la base de datos (filas, columnas) ---", df.sh
 #---------------------------------------------------------
 #Exploración gráfica inicial 
 
-sns.set(style="whitegrid")
 
 #Seleccionamos variables de interés para la visualización
 variables_interes = ['RevolvingUtilizationOfUnsecuredLines', 
@@ -90,26 +89,33 @@ print("\n --- Exploración gráfica inicial de variables clave ---")
 print("\n Variables de interés:", variables_interes)
 
 #Gráfica compuesta: Histograma, Densidad y Boxplot
-fig, axes = plt.subplots(3, len(variables_interes), figsize=(4 * len(variables_interes), 10))
+fig, axes = plt.subplots(3, len(variables_interes),figsize=(4 * len(variables_interes), 10))
 if len(variables_interes) == 1:
     axes = axes.reshape(3,1)  # Asegura que axes sea 2D incluso si hay una sola variable
 for i, var in enumerate(variables_interes):
     col_data = df[var].dropna()
 
-    # Histograma
-    sns.histplot(col_data, bins=40, kde=False, ax=axes[0, i], color='skyblue')
+    # Histograma 
+    sns.histplot(col_data, bins=40, kde=False, ax=axes[0, i],
+                 color="#9BD4FF")  # azul pastel
     axes[0, i].set_title(f'Histograma de {var}')
     axes[0, i].set_xlabel("")
     
-    # Densidad
-    sns.kdeplot(col_data, ax=axes[1, i], fill=True, color='purple')
+    # Densidad 
+    sns.kdeplot(col_data, ax=axes[1, i],
+                fill=True, color="#BB88BB")  # lila pastel
     axes[1, i].set_title(f'Densidad de {var}')
     axes[1, i].set_xlabel("")
     
-    # Boxplot
-    sns.boxplot(x=col_data, ax=axes[2, i], color='lightgreen')
+    # Boxplot 
+    sns.boxplot(x=col_data, ax=axes[2, i],
+                color="#A8D1AE")  # verde menta pastel
     axes[2, i].set_title(f'Boxplot de {var}')
     axes[2, i].set_xlabel(var)
+
+
+#Titulo general
+plt.suptitle('Exploración Gráfica Inicial de Variables Clave', fontsize=16, fontweight='bold', y=1.02)
 #Guardamos el gráfico
 plt.savefig('./Figures/variables_clave_exploracion.png', dpi=300)
 plt.tight_layout()
@@ -121,8 +127,10 @@ plt.close()
 #Matriz de correlación
 plt.figure(figsize=(10, 8))
 corr = df.corr()
-sns.heatmap(corr, cmap='coolwarm', center =0)
-plt.title('Matriz de Correlación')
+sns.heatmap(corr, cmap='coolwarm', center=0)
+plt.title('Matriz de Correlación', fontsize=16, pad=15)
+plt.xticks(rotation=45, ha='right')
+plt.yticks(rotation=0)
 plt.savefig('./Figures/matriz_correlacion.png', dpi=300)
 plt.tight_layout()
 plt.close()
