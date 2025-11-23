@@ -1,0 +1,146 @@
+\documentclass[a4paper,12pt]{article}
+
+%================== Núcleo ==================% 
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish, es-lcroman]{babel}
+\decimalpoint
+\usepackage{microtype}
+
+% Tipografía y mates
+\usepackage{newtxtext,newtxmath}
+\usepackage{amsmath,mathtools,bm} 
+
+% Geometría
+\usepackage{geometry}
+\geometry{
+  margin=0.8in,
+  headheight=16pt,
+  headsep=16pt,
+  footskip=16pt
+}
+\setlength{\parindent}{15pt}
+\setlength{\parskip}{0pt}
+
+%================== Colores ==================% 
+\usepackage[table]{xcolor} 
+\definecolor{lavanda}{HTML}{B8A9C9}
+\definecolor{lavandaClaro}{HTML}{F5F2FA}
+\definecolor{ink}{HTML}{222222}
+\colorlet{Accent}{lavanda}
+\colorlet{AccentSoft}{lavandaClaro}
+\colorlet{Ink}{ink}
+
+% --- Diagramas con TikZ ---
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit}
+
+% Estilos del diagrama
+\tikzset{
+  human/.style={
+    draw=Accent, fill=AccentSoft, rounded corners=4pt,
+    minimum width=22mm, minimum height=8mm, line width=0.8pt
+  },
+  vector/.style={
+    draw=Accent, fill=AccentSoft!60, rounded corners=4pt,
+    minimum width=22mm, minimum height=8mm, line width=0.8pt
+  },
+  flow/.style={-Latex, line width=0.9pt, draw=Accent},
+  xflow/.style={-Latex, line width=0.9pt, draw=Accent!80},
+  aux/.style={dashed, -{Latex[length=2mm]}, draw=Accent!60},
+  lab/.style={font=\footnotesize}
+}
+
+\usepackage[
+  pdfauthor={Debany Jazmín Hernández Camacho},
+  pdftitle={Título del artículo},
+  colorlinks=true,
+  linkcolor=Accent,
+  citecolor=Accent,
+  urlcolor=Accent
+]{hyperref}
+
+% Encabezado / pie
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\footnotesize \textit{Introducción a la Ciencia de Datos}}
+\rhead{\footnotesize \textit{Centro de Investigación en Matemáticas - CIMAT}}
+\cfoot{\footnotesize \thepage}
+\renewcommand{\headrulewidth}{0.6pt}
+\makeatletter
+\def\headrule{{\color{Accent}\hrule\@height\headrulewidth\@width\headwidth \vskip-\headrulewidth}}
+\makeatother
+
+% Títulos
+\usepackage{titlesec}
+\titleformat{\section}
+  {\large\bfseries\color{Ink}}
+  {\thesection}{0.6em}
+  {\color{Accent}\rule[.5ex]{1.2ex}{1.2ex}\;\;}
+\titleformat{\subsection}
+  {\normalsize\bfseries\color{Ink}}
+  {\thesubsection}{0.6em}
+  {\color{Accent}\rule[.5ex]{1ex}{1ex}\;\;}
+\titlespacing*{\section}{0pt}{1.1em}{0.6em}
+\titlespacing*{\subsection}{0pt}{0.9em}{0.4em}
+
+% Figuras, tablas y leyendas
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage[font=small,labelfont=bf,labelsep=period]{caption}
+\usepackage{siunitx}
+\sisetup{detect-all,output-decimal-marker={.}}
+\graphicspath{{Figures/}}
+%\usepackage[table]{xcolor} 
+
+% Listas
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=1.4em}
+\setlist[enumerate]{leftmargin=1.6em}
+
+% Cajas discretas
+\usepackage[most]{tcolorbox}
+\tcbset{boxrule=0.8pt, arc=6pt, left=8pt,right=8pt,top=8pt,bottom=8pt}
+\newtcolorbox{abstractbox}{
+  enhanced, colback=AccentSoft, colframe=Accent,
+  title=\textbf{Resumen}, attach boxed title to top left,
+  boxed title style={colback=Accent!20}
+}
+
+%================== BibTeX ==================% 
+\usepackage[round,authoryear]{natbib}
+\bibliographystyle{apalike}
+
+%================== Inicio del documento ==================% 
+\begin{document}
+
+\begin{center}
+\vspace*{0.5em}
+{\LARGE \textbf{\color{Accent}Titulo}\par}
+\vspace{0.5em}
+{\normalsize Debany Jazmín Hernández Camacho \par}
+\vspace{0.25em}
+{\footnotesize Centro de Investigación en Matemáticas \;·\; Maestría en Matemáticas Aplicadas \par}
+{\footnotesize \texttt{debany.hernandez@cimat.mx} \par}
+\vspace{0.8em}
+\end{center}
+
+\section{Introducción} La segmentación de clientes es una herramienta fundamental dentro del análisis moderno de datos financieros. En particular, las instituciones crediticias requieren identificar patrones de comportamiento que permitan distinguir entre individuos con bajo riesgo, 
+perfiles estables y usuarios con una mayor probabilidad de presentar dificultades en el pago de sus obligaciones. Esta necesidad surge de la alta heterogeneidad de los clientes: cada persona combina distintos niveles de ingreso, uso del crédito, historial de morosidad y carga financiera, 
+lo que hace que insuficiente cualquier clasificación basada únicamente en una o dos variables. 
+
+En este proyecto se desarrolla un análisis integral de segmentación utilizando el conjunto de datos \textbf{Give Me Some Credit}, el cual contiene información financiera y demográfica de aproximadamente 150,000 individuos. El objetivo general es construir perfiles homogéneos de clientes a
+partir de sus características crediticias, sin emplear una variable objetivo o etiquetas previas. Para ello se utilizan exclusivamente técnicas de aprendizaje no supervisado, lo que permite dejar que los datos revelen sus propias estructuras internas. 
+
+El proceso metodológico combina 3 elementos centrales: 
+\begin{enumerate}
+  \item una etapa detallada de preprocesamiento para limpiar, imputar y estabilizar las variables, dado que la base de datos presenta altas asimetrías, valores extremos y valores faltantes; 
+  \item una reducción de dimensionalidad mediante Análisis de Componentes Principales (PCA), con el fin de capturar la estructura esencial de variabilidad del conjunto; 
+  \item un análisis de agrupamiento utilizando K-Means sobre el espacio reducido por PCA. 
+\end{enumerate}
+
+
+\end{document}
+
