@@ -112,9 +112,42 @@ def create_radar(df, title, palette):
     
     plt.title(title, size=16, y=1.1)
     plt.legend(loc='lower left', bbox_to_anchor=(1.05, 0.05), fontsize=10)
-    plt.savefig('./Figures/segmentacion_radar_plot.png', dpi=300)
+    plt.savefig('./Figures/segmentacion_radar_clusters.png', dpi=300)
     plt.show()
     plt.close()
 
-create_radar(df_norm, f'Perfiles de Clientes - {len(df_norm.index)} Clusters (Estandarido)', paleta_color_dict)
+create_radar(df_norm, f'Perfiles de Clientes - {len(df_norm.index)} Clusters (Estandarizado)', paleta_color_dict)
 
+
+#Heatmap de medias normalizadas 
+variables = [
+    "RevolvingUtilizationOfUnsecuredLines",
+    "DebtRatio",
+    "MonthlyIncome",
+    "NumberOfOpenCreditLinesAndLoans",
+    "NumberOfTimes90DaysLate",
+    "NumberOfTime60-89DaysPastDueNotWorse",
+    "NumberOfTime30-59DaysPastDueNotWorse",
+    "NumberOfDependents",
+    "age"
+]
+cluster_means = df_resultado.groupby("Cluster")[variables].mean()
+cluster_z = (cluster_means - cluster_means.mean()) / cluster_means.std()
+
+plt.figure(figsize=(10, 6))
+sns.heatmap(
+    cluster_z.T,               
+    cmap="coolwarm",
+    annot=True,
+    fmt=".2f",
+    linewidths=0.5,
+    cbar_kws={"shrink": 0.8}
+)
+plt.title("Heatmap – Medias normalizadas por variable y cluster (z-score)", fontsize=16)
+plt.xlabel("Cluster")
+plt.ylabel("Variable")
+plt.yticks(rotation=0)        # nombres de variables horizontales
+plt.tight_layout()
+plt.savefig("./Figures/heatmap_clusters.png", dpi=300)
+plt.show()
+plt.close()
