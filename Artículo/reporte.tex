@@ -21,7 +21,8 @@
 }
 \setlength{\parindent}{15pt}
 \setlength{\parskip}{0pt}
-
+\usepackage[dvipsnames]{xcolor}
+\usepackage{enumitem}
 %================== Colores ==================% 
 \usepackage[table]{xcolor} 
 \definecolor{lavanda}{HTML}{B8A9C9}
@@ -127,19 +128,129 @@
 \vspace{0.8em}
 \end{center}
 
-\section{Introducción} La segmentación de clientes es una herramienta fundamental dentro del análisis moderno de datos financieros. En particular, las instituciones crediticias requieren identificar patrones de comportamiento que permitan distinguir entre individuos con bajo riesgo, 
-perfiles estables y usuarios con una mayor probabilidad de presentar dificultades en el pago de sus obligaciones. Esta necesidad surge de la alta heterogeneidad de los clientes: cada persona combina distintos niveles de ingreso, uso del crédito, historial de morosidad y carga financiera, 
-lo que hace que insuficiente cualquier clasificación basada únicamente en una o dos variables. 
+\section{Introducción} La segmentación de clientes es una herramienta fundamental dentro del análisis moderno de datos 
+financieros. En particular, las instituciones crediticias requieren identificar patrones de comportamiento que permitan 
+distinguir entre individuos con bajo riesgo, perfiles estables y usuarios con una mayor probabilidad de presentar dificultades 
+en el pago de sus obligaciones. Esta necesidad surge de la alta heterogeneidad de los clientes: cada persona combina distintos 
+niveles de ingreso, uso del crédito, historial de morosidad y carga financiera, lo que hace insuficiente cualquier clasificación 
+basada únicamente en una o dos variables. 
 
-En este proyecto se desarrolla un análisis integral de segmentación utilizando el conjunto de datos \textbf{Give Me Some Credit}, el cual contiene información financiera y demográfica de aproximadamente 150,000 individuos. El objetivo general es construir perfiles homogéneos de clientes a
-partir de sus características crediticias, sin emplear una variable objetivo o etiquetas previas. Para ello se utilizan exclusivamente técnicas de aprendizaje no supervisado, lo que permite dejar que los datos revelen sus propias estructuras internas. 
+En este proyecto se desarrolla un análisis integral de segmentación utilizando el conjunto de datos \textbf{Give Me Some Credit}, 
+el cual contiene información financiera y demográfica de aproximadamente 150,000 individuos. El objetivo general es construir 
+perfiles homogéneos de clientes a partir de sus características crediticias, sin emplear una variable objetivo o etiquetas previas. 
+Para ello se utilizan exclusivamente técnicas de aprendizaje no supervisado, lo que permite dejar que los datos revelen sus 
+propias estructuras internas. 
 
 El proceso metodológico combina 3 elementos centrales: 
-\begin{enumerate}
-  \item una etapa detallada de preprocesamiento para limpiar, imputar y estabilizar las variables, dado que la base de datos presenta altas asimetrías, valores extremos y valores faltantes; 
-  \item una reducción de dimensionalidad mediante Análisis de Componentes Principales (PCA), con el fin de capturar la estructura esencial de variabilidad del conjunto; 
+\begin{itemize}[label=\textcolor{Accent}{$\diamond$}]
+  \item una etapa detallada de preprocesamiento para limpiar, imputar y estabilizar las variables, dado que la base de datos 
+  presenta altas asimetrías, valores extremos y valores faltantes; 
+  \item una reducción de dimensionalidad mediante Análisis de Componentes Principales (PCA), con el fin de capturar la estructura 
+  esencial de variabilidad del conjunto; 
   \item un análisis de agrupamiento utilizando K-Means sobre el espacio reducido por PCA. 
-\end{enumerate}
+\end{itemize}
+
+Más alla del mero cálculo de clusters, el próposito de este estudio es interpretar cada uno de los perfiles resultantes desde una 
+perspectiva financiera, buscando responder lo siguiente, ¿qué caracteriza a los clientes menos riesgosos?, ¿qué patrones de 
+endeudamiento o morosidad distinguen a los grupos más vulnerables?, ¿cómo se relacionan variables como ingresos, utilización de 
+crédito y número de dependientes con el comportamiento crediticio? El énfasis está puesto en describir estos perfiles de forma 
+clara y útil, de modo que el agrupamiento tenga un sentido práctico dentro del contexto del riesgo financiero. 
+
+Así, este trabajo no solo construye una segmentación estadísticamente coherente, sino que busca comprender qué factores dan 
+forma a los distintos tipos de clientes. El resultado es un análisis que combina técnica, interpretación y una visión aplicada 
+de la Ciencia de Datos dentro del ámbito del endeudamiento personal. 
+
+\section{Exploración inicial de los datos}
+
+\subsection{Datos}
+El análisis se basa en el conjunto de datos \textit{Give Me Some Credit}, el cual contiene información financiera y demográfica 
+a nivel individual. Cada fila corresponde a un cliente distinto y resume su situación creditica en un momento específico, a 
+partir de un conjunto de variables cuantitativas relacionadas con ingreso, endeudamiento, uso del crédito y comportamiento 
+de pago. Para este trabajo se utiliza la versión depurada del archivo \texttt{cs\_training.csv}, que incluye aproximadamente 
+150,000 observaciones. Todas las variables empleadas en el análisis son numéricas, lo que facilita el uso de técnicas de reducción 
+de dimensionalidad y agrupamiento basadas en distancias. La estructura general del conjunto puede verse como una matriz de tamaño 
+$n \times p$, donde $n$ es el número de clientes y $p$ el número de variables consideradas. 
+
+La base de datos original contiene una variable binaria asociada a morosidad severa a dos años (\texttt{SeriousDlqin2yrs}), así 
+como diez predictores numéricos que describen hábitos de uso del crédito, niveles de deuda, historial de atrasos y características
+demográficas simples (edad y número de dependientes). En este proyecto, dicha variable binaria se utiliza únicamente como información
+contextual y no forma parte del proceso de agrupamiento, que se construye de manera completamente no supervisada. 
+
+En la Tabla~\ref{tab:variables} se resumen las variables principales utilizadas, indicando para cada una su tipo de dato y una 
+breve descripción de su significado dentro del contexto financiero del problema. 
+
+\begin{table}[H]
+\centering
+\rowcolors{2}{lavandaClaro!40}{white}
+\caption{\textbf{Descripción de las variables de la base de datos}}
+\label{tab:variables}
+\small
+\begin{tabular}{p{5cm} p{3 cm} p{7.5cm}}
+\toprule
+\rowcolor{lavanda!30}
+\textbf{Variable} & \textbf{Tipo} & \textbf{Descripción} \\
+\midrule
+
+\texttt{SeriousDlqin2yrs} & Binaria (0/1) &
+Indica si el cliente incurrió en morosidad grave (90+ días de atraso) en los próximos dos años. \\
+
+\texttt{RevolvingUtilizationOfUnsecuredLines} & Numérica continua ($\ge 0$) & Proporción de utilización 
+de las líneas de crédito no aseguradas (por ejemplo, tarjetas de crédito). Valores cercanos a 1 
+indican uso al límite. \\
+
+\texttt{age} & Numérica discreta &
+Edad del cliente en años. \\
+
+\texttt{NumberOfTime30-59DaysPastDueNotWorse} & Numérica discreta ($\ge 0$) &
+Número de veces con atrasos de 30--59 días, sin caer en morosidad severa. \\
+
+\texttt{DebtRatio} & Numérica continua ($\ge 0$) &
+Razón entre el total de pagos mensuales de deuda y gastos, respecto al ingreso mensual declarado. Mide la carga financiera 
+relativa del cliente. \\
+
+\texttt{MonthlyIncome} & Numérica continua ($\ge 0$) &
+Ingreso mensual declarado por el cliente. \\
+
+\texttt{NumberOfOpenCreditLinesAndLoans} & Numérica discreta ($\ge 0$) &
+Número de líneas de crédito y préstamos abiertos (tarjetas, préstamos personales, etc.). \\
+
+\texttt{NumberOfTimes90DaysLate} & Numérica discreta ($\ge 0$) &
+Número de atrasos de 90 días o más. Indicador de morosidad severa. \\
+
+\texttt{NumberRealEstateLoansOrLines} & Numérica discreta ($\ge 0$) &
+Número de préstamos inmobiliarios (por ejemplo, hipotecas). \\
+
+\texttt{NumberOfTime60-89DaysPastDueNotWorse} & Numérica discreta ($\ge 0$) &
+Número de veces que el cliente ha estado entre 60--89 días de atraso, sin caer en estados peores. \\
+
+\texttt{NumberOfDependents} & Numérica discreta ($\ge 0$) &
+Cantidad de dependientes económicos del cliente. \\
+
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Preprocesamiento}
+El preprocesamiento fue una etapa esencial debido a la presencia de outliers, datos faltantes y distribuciones altamente 
+asimétricas, todas características comunes en información financiera. El objetivo de esta fue obtener un conjunto de datos 
+estable, consistente y adecuado para la aplicación de técnicas basadas en distancia, especialmente PCA y K-Means. 
+
+En primer lugar, se eliminaron los registros duplicados y un único caso con edad igual a 0, valor imposible en el contexto de 
+estudio. Posteriormente, se atendieron los valores faltantes: \texttt{MonthlyIncome} presentaba aproximadamente 5,400 
+observaciones vacías, que fueron imputadas mediante la mediana de la distribución, una estrategia adecuada dada su fuerte asimetría. 
+Para \texttt{NumberOfDependents} se empleó la moda, pues la mayoría de los clientes declara entre cero y dos dependientes. 
+
+Un análisis exploratorio reveló la existencia de valores extremadamente grandes en variables como 
+\texttt{RevolvingUtilizationOfUnsecuredLines} y \texttt{DebtRatio}. Estos valores, aunque plausibles en ciertos contextos de 
+endeudamiento, afectan de manera desproporcionada a métodos sensibles a la escala. Para controlar este efecto sin eliminar 
+observaciones completas, se aplicó "winsorización": \texttt{RevolvingUtilizationOfUnsecuredLines} fue truncada en su percentil 99, 
+mientras que \texttt{DebtRatio} se truncó en el percentil 99.5 debido a la presencia de outliers particularmente severos. 
+
+Una vez estabilizadas las distribuciones, todas las variables fueron estandarizadas mediante \textit{StandarScaler}. Esta normalización
+garantiza que cada variable contribuya en igualdad de condiciones al análisis, evitando que aquellas con rangos grandes dominen los 
+componentes principales o los centroides del clustering. El resultado final de esta etapa fue un conjunto limpio, sin valores 
+faltantes, con outliers suavizados y todas las variables expresadas en una escala comparable. 
+
 
 
 \end{document}

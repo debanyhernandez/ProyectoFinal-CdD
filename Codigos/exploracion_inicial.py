@@ -89,7 +89,7 @@ print("\n --- Exploración gráfica inicial de variables clave ---")
 print("\n Variables de interés:", variables_interes)
 
 #Gráfica compuesta: Histograma, Densidad y Boxplot
-fig, axes = plt.subplots(3, len(variables_interes),figsize=(4 * len(variables_interes), 10))
+fig, axes = plt.subplots(3, len(variables_interes),figsize=(5 * len(variables_interes), 10))
 if len(variables_interes) == 1:
     axes = axes.reshape(3,1)  # Asegura que axes sea 2D incluso si hay una sola variable
 for i, var in enumerate(variables_interes):
