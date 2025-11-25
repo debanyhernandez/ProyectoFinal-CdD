@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.22)  25 NOV 2025 01:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.22)  25 NOV 2025 01:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1461,37 +1461,38 @@ Overfull \hbox (64.69063pt too wide) in paragraph at lines 224--224
 <../Figures/matriz_correlacion.png, id=117, 773.0481pt x 657.657pt>
 File: ../Figures/matriz_correlacion.png Graphic file (type png)
 <use ../Figures/matriz_correlacion.png>
-Package pdftex.def Info: ../Figures/matriz_correlacion.png  used on input line 273.
-(pdftex.def)             Requested size: 337.31134pt x 286.96156pt.
+Package pdftex.def Info: ../Figures/matriz_correlacion.png  used on input line 272.
+(pdftex.def)             Requested size: 433.68497pt x 368.94772pt.
  [3 <../Figures/matriz_correlacion.png>]
 <../Figures/varianza_explicada_pca.png, id=126, 722.7pt x 433.62pt>
 File: ../Figures/varianza_explicada_pca.png Graphic file (type png)
 <use ../Figures/varianza_explicada_pca.png>
-Package pdftex.def Info: ../Figures/varianza_explicada_pca.png  used on input line 306.
+Package pdftex.def Info: ../Figures/varianza_explicada_pca.png  used on input line 305.
 (pdftex.def)             Requested size: 457.78021pt x 274.67076pt.
  [4 <../Figures/varianza_explicada_pca.png>]
 <../Figures/metodo_del_codo_kmeans.png, id=134, 867.24pt x 361.35pt>
 File: ../Figures/metodo_del_codo_kmeans.png Graphic file (type png)
 <use ../Figures/metodo_del_codo_kmeans.png>
-Package pdftex.def Info: ../Figures/metodo_del_codo_kmeans.png  used on input line 335.
-(pdftex.def)             Requested size: 419.2293pt x 174.6811pt.
+Package pdftex.def Info: ../Figures/metodo_del_codo_kmeans.png  used on input line 334.
+(pdftex.def)             Requested size: 457.78021pt x 190.74266pt.
 <../Figures/silhouette_vs_k_kmeans.png, id=136, 867.24pt x 361.35pt>
 File: ../Figures/silhouette_vs_k_kmeans.png Graphic file (type png)
 <use ../Figures/silhouette_vs_k_kmeans.png>
-Package pdftex.def Info: ../Figures/silhouette_vs_k_kmeans.png  used on input line 350.
-(pdftex.def)             Requested size: 419.2293pt x 174.6811pt.
- [5 <../Figures/metodo_del_codo_kmeans.png>] [6 <../Figures/silhouette_vs_k_kmeans.png>] [7]
-<../Figures/heatmap_clusters.png, id=158, 680.7834pt x 426.8748pt>
+Package pdftex.def Info: ../Figures/silhouette_vs_k_kmeans.png  used on input line 349.
+(pdftex.def)             Requested size: 433.68497pt x 180.70212pt.
+ [5 <../Figures/metodo_del_codo_kmeans.png>] [6 <../Figures/silhouette_vs_k_kmeans.png>]
+<../Figures/heatmap_clusters.png, id=153, 680.7834pt x 426.8748pt>
 File: ../Figures/heatmap_clusters.png Graphic file (type png)
 <use ../Figures/heatmap_clusters.png>
-Package pdftex.def Info: ../Figures/heatmap_clusters.png  used on input line 433.
+Package pdftex.def Info: ../Figures/heatmap_clusters.png  used on input line 432.
 (pdftex.def)             Requested size: 424.05275pt x 265.8907pt.
-<../Figures/segmentacion_radar_clusters.png, id=160, 717.1593pt x 595.9866pt>
+ [7 <../Figures/heatmap_clusters.png>]
+<../Figures/segmentacion_radar_clusters.png, id=162, 717.1593pt x 595.9866pt>
 File: ../Figures/segmentacion_radar_clusters.png Graphic file (type png)
 <use ../Figures/segmentacion_radar_clusters.png>
-Package pdftex.def Info: ../Figures/segmentacion_radar_clusters.png  used on input line 451.
-(pdftex.def)             Requested size: 385.50183pt x 320.36383pt.
- [8 <../Figures/heatmap_clusters.png>] [9 <../Figures/segmentacion_radar_clusters.png>] [10] [11] [12] (reporte.aux
+Package pdftex.def Info: ../Figures/segmentacion_radar_clusters.png  used on input line 450.
+(pdftex.def)             Requested size: 433.68497pt x 360.40477pt.
+ [8 <../Figures/segmentacion_radar_clusters.png>] [9] [10] [11] (reporte.aux
 LaTeX Info: Redefining \. on input line 12.
 LaTeX Info: Redefining \% on input line 12.
 )
@@ -1503,17 +1504,17 @@ Package rerunfilecheck Info: File `reporte.out' has not changed.
 (rerunfilecheck)             Checksum: B56ED9C110DE782AF0DB0C1D704C1C5D;2673.
  ) 
 Here is how much of TeX's memory you used:
- 42350 strings out of 467871
- 867285 string characters out of 5418375
- 1296958 words of memory out of 5000000
+ 42351 strings out of 467871
+ 867318 string characters out of 5418375
+ 1300277 words of memory out of 5000000
  70412 multiletter control sequences out of 15000+600000
- 712077 words of font info for 208 fonts, out of 8000000 for 9000
+ 712169 words of font info for 209 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 89i,13n,117p,1086b,1243s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 89i,12n,117p,1086b,1236s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/deban/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/NewTXMI.pfb><C:/Users/deban/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmr.pfb><C:/Users/deban/AppData/Local/Programs/MiKTeX/fonts/type1/public/txfonts/t1xtt.pfb><C:/Users/deban/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txmiaX.pfb><C:/Users/deban/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txsys.pfb><C:/Users/deban/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmb.pfb><C:/Users/deban/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmr.pfb><C:/Users/deban/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmri.pfb>
-Output written on reporte.pdf (12 pages, 1709098 bytes).
+Output written on reporte.pdf (11 pages, 1708582 bytes).
 PDF statistics:
- 235 PDF objects out of 1000 (max. 8388607)
- 35 named destinations out of 1000 (max. 500000)
+ 231 PDF objects out of 1000 (max. 8388607)
+ 34 named destinations out of 1000 (max. 500000)
  32555 words of extra memory for PDF output out of 35830 (max. 10000000)
 

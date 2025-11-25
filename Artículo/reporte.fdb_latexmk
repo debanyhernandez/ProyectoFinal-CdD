@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1764055511.05035 "c:/Users/deban/OneDrive/Documentos/Ciencia de Datos/ProyectoFinal-CdD/Artículo/reporte.tex" "reporte.pdf" "reporte" 1764055514.7603 0
+["pdflatex"] 1764056423.94451 "c:/Users/deban/OneDrive/Documentos/Ciencia de Datos/ProyectoFinal-CdD/Artículo/reporte.tex" "reporte.pdf" "reporte" 1764056427.56888 0
   "../Figures/heatmap_clusters.png" 1764055507.19605 280561 1d6a041186fd6ab943261f497cb3c89f ""
   "../Figures/matriz_correlacion.png" 1764055292.37473 483498 4fa6cd2cd9cb38dfa47f30d9a93decaa ""
   "../Figures/metodo_del_codo_kmeans.png" 1763790763.94608 176664 2d8ee8a32d2d849cc8b97057884cbd6c ""
@@ -264,9 +264,9 @@
   "C:/Users/deban/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
   "C:/Users/deban/AppData/Local/Programs/MiKTeX/tex/latex/xpatch/xpatch.sty" 1585221260 8510 9829c50ab36366d4da41fdc87e7d0699 ""
   "C:/Users/deban/AppData/Local/Programs/MiKTeX/tex/latex/xstring/xstring.sty" 1693735632 123 a302f2c651a95033260db60e51527ae8 ""
-  "c:/Users/deban/OneDrive/Documentos/Ciencia de Datos/ProyectoFinal-CdD/Artículo/reporte.tex" 1764054972.52497 34224 150bdeebd022d162de541eb73a4a676c ""
-  "reporte.aux" 1764055514.46735 4675 6e2de4655395eb240f43bc4679351a2f "pdflatex"
-  "reporte.out" 1764055514.46917 2673 b56ed9c110de782af0db0c1d704c1c5d "pdflatex"
+  "c:/Users/deban/OneDrive/Documentos/Ciencia de Datos/ProyectoFinal-CdD/Artículo/reporte.tex" 1764056423.47465 34326 1fc3b888679f68df0f1f66c64c07e1f1 ""
+  "reporte.aux" 1764056427.28436 4674 e11c85391288f26af4eb937eee613611 "pdflatex"
+  "reporte.out" 1764056427.28702 2673 b56ed9c110de782af0db0c1d704c1c5d "pdflatex"
   (generated)
   "reporte.aux"
   "reporte.log"
