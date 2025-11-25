@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1763891251.5081 "c:/Users/deban/OneDrive/Documentos/Ciencia de Datos/ProyectoFinal-CdD/Artículo/reporte.tex" "reporte.pdf" "reporte" 1763891254.04468 0
+["pdflatex"] 1763894646.49838 "c:/Users/deban/OneDrive/Documentos/Ciencia de Datos/ProyectoFinal-CdD/Artículo/reporte.tex" "reporte.pdf" "reporte" 1763894649.0461 0
   "C:/Users/deban/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1763861756.8918 163260 f7138aa97b0a1dcae55100dabb7d9e7d ""
   "C:/Users/deban/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1763861243.06997 13333512 59882ac5eaf4a3625952d02890ac71f5 ""
   "C:/Users/deban/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ec-tlf.enc" 1736607166 2914 fdbc4a54b9bc76f4551b5303f2737d33 ""
@@ -252,9 +252,9 @@
   "C:/Users/deban/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
   "C:/Users/deban/AppData/Local/Programs/MiKTeX/tex/latex/xpatch/xpatch.sty" 1585221260 8510 9829c50ab36366d4da41fdc87e7d0699 ""
   "C:/Users/deban/AppData/Local/Programs/MiKTeX/tex/latex/xstring/xstring.sty" 1693735632 123 a302f2c651a95033260db60e51527ae8 ""
-  "c:/Users/deban/OneDrive/Documentos/Ciencia de Datos/ProyectoFinal-CdD/Artículo/reporte.tex" 1763891248.21548 10657 01878d04bb78d829be3ededd38050efe ""
-  "reporte.aux" 1763891253.6237 1210 9be042b21b1143be8afd64c82ff6e5ef "pdflatex"
-  "reporte.out" 1763891253.62855 543 a1e58a2ba578175d18419545a0ad64ab "pdflatex"
+  "c:/Users/deban/OneDrive/Documentos/Ciencia de Datos/ProyectoFinal-CdD/Artículo/reporte.tex" 1763894643.01808 12138 0789aef4caf409257b25ac03761833a6 ""
+  "reporte.aux" 1763894648.61192 1210 eebc1736aa82b4c2a00d85b2c237272c "pdflatex"
+  "reporte.out" 1763894648.61971 543 a1e58a2ba578175d18419545a0ad64ab "pdflatex"
   (generated)
   "reporte.aux"
   "reporte.log"

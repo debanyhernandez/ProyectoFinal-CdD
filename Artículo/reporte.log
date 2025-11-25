@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.22)  23 NOV 2025 03:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.22)  23 NOV 2025 04:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1450,7 +1450,7 @@ Overfull \hbox (64.69063pt too wide) in paragraph at lines 223--223
 []|\T1/ntxtt/m/n/10.95 NumberOfTime60-89DaysPastDueNotWorse| 
  []
 
-[2{C:/Users/deban/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc}] (reporte.aux
+[2{C:/Users/deban/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc}] [3] (reporte.aux
 LaTeX Info: Redefining \. on input line 12.
 LaTeX Info: Redefining \% on input line 12.
 )
@@ -1462,17 +1462,17 @@ Package rerunfilecheck Info: File `reporte.out' has not changed.
 (rerunfilecheck)             Checksum: A1E58A2BA578175D18419545A0AD64AB;543.
  ) 
 Here is how much of TeX's memory you used:
- 42107 strings out of 467871
- 861124 string characters out of 5418375
- 1289134 words of memory out of 5000000
- 70253 multiletter control sequences out of 15000+600000
- 707896 words of font info for 182 fonts, out of 8000000 for 9000
+ 42119 strings out of 467871
+ 861303 string characters out of 5418375
+ 1291134 words of memory out of 5000000
+ 70260 multiletter control sequences out of 15000+600000
+ 708124 words of font info for 184 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  102i,12n,117p,1086b,1099s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/deban/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/NewTXMI.pfb><C:/Users/deban/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmr.pfb><C:/Users/deban/AppData/Local/Programs/MiKTeX/fonts/type1/public/txfonts/t1xtt.pfb><C:/Users/deban/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txsys.pfb><C:/Users/deban/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmb.pfb><C:/Users/deban/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmr.pfb><C:/Users/deban/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmri.pfb>
-Output written on reporte.pdf (2 pages, 154295 bytes).
+Output written on reporte.pdf (3 pages, 157022 bytes).
 PDF statistics:
- 116 PDF objects out of 1000 (max. 8388607)
- 8 named destinations out of 1000 (max. 500000)
+ 120 PDF objects out of 1000 (max. 8388607)
+ 9 named destinations out of 1000 (max. 500000)
  32445 words of extra memory for PDF output out of 35830 (max. 10000000)
 
