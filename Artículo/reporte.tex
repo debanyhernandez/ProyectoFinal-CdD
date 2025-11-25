@@ -23,6 +23,8 @@
 \setlength{\parskip}{0pt}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{enumitem}
+\usepackage{pdflscape}
+
 %================== Colores ==================% 
 \usepackage[table]{xcolor} 
 \definecolor{lavanda}{HTML}{B8A9C9}
@@ -301,7 +303,7 @@ seis dimensiones.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.85\textwidth]{varianza_explicada_pca.png}
+    \includegraphics[width=0.95\textwidth]{varianza_explicada_pca.png}
     \caption{Varianza explicada por cada componente principal y varianza acumulada.}
     \label{fig:varianza-pca}
 \end{figure}
@@ -330,7 +332,7 @@ a partir de cinco grupos los beneficios de seguir aumentando $k$ son marginales 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.85\textwidth]{metodo_del_codo_kmeans.png}
+    \includegraphics[width=0.87\textwidth]{metodo_del_codo_kmeans.png}
     \caption{Método del codo para distintos valores de $k$ en el modelo K-Means.}
     \label{fig:elbow-kmeans}
 \end{figure}
@@ -345,7 +347,7 @@ segmentación demasiado gruesa.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.85\textwidth]{silhouette_vs_k_kmeans.png}
+    \includegraphics[width=0.87\textwidth]{silhouette_vs_k_kmeans.png}
     \caption{Coeficiente de Silhouette promedio para $k$ entre 2 y 10.}
     \label{fig:silhouette}
 \end{figure}
@@ -357,38 +359,243 @@ de resultados para analizar y describir en detalle los perfiles de endeudamiento
 
 \section{Resultados}
 
-Una vez ajustado el modelo de agrupamiento, el análisis se centró en caracterizar los perfiles financieros que emergen 
-de los cinco clusters seleccionados. Para ello se emplearon tanto métricas descriptivas como visualizaciones que permiten 
-comparar los grupos en términos de morosidad, actividad crediticia, endeudamiento y capacidad económica.
+Una vez ajustado el modelo de agrupamiento, el análisis se centró en describir los perfiles financieros de los 
+cinco clusters obtenidos. Para ello se combinaron estadísticas descriptivas y visualizaciones que permiten comparar 
+cada grupo en dimensiones como morosidad, endeudamiento, ingresos y actividad crediticia. Aunque no se muestran 
+todas las gráficas generadas (como la proyección PCA o los boxplots), estas confirmaron que los clusters presentan 
+diferencias bien definidas y coherentes con los patrones observados en el conjunto.
 
-Antes de presentar las figuras principales, se realizó una inspección general de los datos proyectados en el espacio 
-PCA y de la distribución de variables clave mediante boxplots. Estas visualizaciones
-confirmaron que los grupos presentan patrones distinguibles en las componentes principales y diferencias marcadas en 
-variables como ingresos, deuda relativa y líneas de crédito abiertas. Esto proporcionó una primera evidencia de que 
-los clusters reflejan comportamientos financieros heterogéneos.
+\subsection{Perfilamiento general de los clusters}
 
-\subsection{Mapa de calor de medias normalizadas}
+Como punto de partida, se calcularon las medias de las variables financieras para cada cluster, además del tamaño 
+absoluto y relativo de cada grupo. La Tabla~\ref{tab:perfilamiento-clusters} organiza esta información por temas 
+principales: nivel de endeudamiento, morosidad, actividad crediticia, características demográficas y dimensión de 
+cada cluster. Esta estructura permite identificar diferencias globales antes de recurrir a visualizaciones más detalladas.
 
-Para comparar de manera directa la posición relativa de cada grupo en todas las variables, se construyó un mapa de 
-calor basado en medias normalizadas mediante \textit{z-score}. La Figura~\ref{fig:heatmap-clusters} muestra este 
-resumen, donde valores positivos (en tonos rojos) representan niveles por encima del promedio poblacional, 
-mientras que valores negativos (en tonos azules) corresponden a niveles inferiores.
+\begin{table}[H]
+\centering
+\caption{\textbf{Perfilamiento general de los clusters por temática}}
+\label{tab:perfilamiento-clusters}
+\small
+\rowcolors{2}{lavandaClaro!30}{white}
+
+\begin{tabular}{
+    p{4.8cm}
+    >{\centering\arraybackslash}p{1.4cm}
+    >{\centering\arraybackslash}p{1.4cm}
+    >{\centering\arraybackslash}p{1.4cm}
+    >{\centering\arraybackslash}p{1.4cm}
+    >{\centering\arraybackslash}p{1.4cm}
+}
+\toprule
+\rowcolor{lavanda!40}
+\textbf{Variable} & \textbf{0} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{1} \\
+\midrule
+
+\multicolumn{6}{l}{\textbf{Endeudamiento y uso de crédito}} \\
+Revolving Utilization & 0.107 & 0.690 & 0.260 & 0.277 & 1.000 \\
+Debt Ratio             & 131.673 & 92.730 & 37.194 & 3305.179 & 6.764 \\[4pt]
+
+\multicolumn{6}{l}{\textbf{Morosidad (frecuencia de atrasos)}} \\
+30--59 días tarde & 0.121 & 0.389 & 0.286 & 0.245 & 97.956 \\
+60--89 días tarde & 0.023 & 0.226 & 0.052 & 0.050 & 97.956 \\
+90+ días tarde    & 0.023 & 0.245 & 0.043 & 0.050 & 97.956 \\[4pt]
+
+\multicolumn{6}{l}{\textbf{Actividad crediticia}} \\
+Líneas abiertas              & 7.937 & 5.226 & 12.237 & 10.049 & 0.009 \\
+Préstamos inmobiliarios     & 0.701 & 0.442 & 1.887 & 1.778 & 0.000 \\[4pt]
+
+\multicolumn{6}{l}{\textbf{Ingresos y características demográficas}} \\
+Ingreso mensual      & 5912.836 & 4789.837 & 9229.359 & 5124.065 & 3602.027 \\
+Edad                 & 62.498 & 40.893 & 48.875 & 53.395 & 36.071 \\
+Dependientes         & 0.178 & 0.664 & 1.739 & 0.400 & 0.000 \\[4pt]
+
+\multicolumn{6}{l}{\textbf{Tamaño del cluster}} \\
+Conteo (individuos)  & 58054 & 40646 & 39604 & 10861 & 225 \\
+Porcentaje (\%)      & 38.861 & 27.208 & 26.510 & 7.270 & 0.151 \\
+
+\bottomrule
+\end{tabular}
+\end{table}
+
+La tabla muestra que el cluster~1 concentra valores extremos en todas las variables de 
+morosidad y casi ninguna línea de crédito activa, además de representar sólo el 0.15\% de 
+la población. Por este motivo, algunas visualizaciones posteriores lo excluyen para evitar 
+que distorsione la escala.
+\newpage
+\subsection{Mapa de calor de perfiles por cluster}
+
+El mapa de calor de la Figura~\ref{fig:heatmap-clusters} resume las medias normalizadas de cada variable en cada cluster. 
+Esta visualización permite comparar rápidamente la posición relativa de cada grupo sin necesidad de analizar cada variable por separado.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.86\textwidth]{heatmap_clusters.png}
+    \includegraphics[width=0.88\textwidth]{heatmap_clusters.png}
     \caption{Mapa de calor de medias normalizadas (z-score) para las variables financieras según cluster.}
     \label{fig:heatmap-clusters}
 \end{figure}
 
-El mapa de calor revela contrastes claros entre los grupos. Algunos clusters exhiben valores elevados en 
-indicadores de morosidad, mientras que otros destacan por ingresos altos o mayor actividad crediticia. Asimismo, 
-ciertos grupos combinan baja utilización del crédito con niveles relativamente moderados de deuda, lo que sugiere 
-comportamientos estables. Estas diferencias estructurales confirman que el modelo captura perfiles financieros 
-distintos y consistentes con dimensiones económicas reales.
+Lo anterior nos revela contrastes bien definidos, el cluster~0 presenta valores consistentemente bajos en morosidad y 
+utilización del crédito; el cluster~3 destaca por sus altos ingresos y amplia actividad crediticia; el cluster~4 
+muestra niveles muy elevados de endeudamiento; mientras que el cluster~2 combina mayor carga familiar con una 
+utilización más intensa del crédito. El cluster~1 resalta de forma inmediata debido a sus valores extremos 
+en todas las medidas de atraso.
+
+\subsection{Perfilamiento global mediante gráfico de radar}
+
+El gráfico de radar de la Figura~\ref{fig:radar-clusters} complementa al mapa de calor ofreciendo una vista 
+conjunta de los perfiles. Para preservar la escala y la legibilidad, el cluster~1 se excluyó de esta representación.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.80\textwidth]{segmentacion_radar_clusters.png}
+    \caption{Gráfico de radar comparando las medias normalizadas de los clusters (excepto el cluster 1).}
+    \label{fig:radar-clusters}
+\end{figure}
+
+Aquí se aprecia la “forma” distintiva de cada perfil: el cluster~0 reúne valores bajos y estables; el cluster~3 
+sobresale en ingreso y actividad crediticia; el cluster~2 se expande en dimensiones asociadas a carga familiar y 
+uso del crédito; y el cluster~4 se distingue por su fuerte componente de endeudamiento. A diferencia del mapa de 
+calor, el radar permite observar cómo cada cluster distribuye su intensidad relativa entre las variables.
+
+\subsection{Interpretación de los clusters}
+
+A partir del perfilamiento cuantitativo y de las visualizaciones generadas, es posible describir con claridad las 
+características distintivas de cada uno de los grupos identificados. Los clusters representan perfiles financieros 
+bien diferenciados, que reflejan patrones concretos de utilización del crédito, estabilidad económica y comportamiento 
+de pago.
+
+\textbf{Cluster 0: Perfil estable y conservador.}  
+
+Este grupo agrupa al porcentaje más grande de la población (38.9\%). Se caracteriza por una utilización muy baja 
+del crédito rotativo, niveles prácticamente nulos de morosidad y una edad promedio elevada. Además, sus ingresos 
+se encuentran en niveles moderados y el número de líneas de crédito abiertas es relativamente bajo. Todo apunta 
+a un perfil de clientes prudentes, con un comportamiento crediticio estable y sin señales de riesgo significativo.
+
+\textbf{Cluster 2: Uso intensivo del crédito y mayor vulnerabilidad.} 
+
+Los individuos de este cluster presentan una utilización del crédito rotativo notablemente alta, mayores niveles 
+de morosidad (en comparación con los clusters estables) y una proporción importante de dependientes. La edad 
+promedio es menor y los ingresos son moderados, lo que sugiere una etapa más temprana en la vida financiera 
+con una carga económica elevada. Este grupo refleja un perfil más vulnerable ante variaciones en ingresos o 
+gastos, con riesgo de deterioro futuro.
+
+\textbf{Cluster 3: Actividad crediticia elevada y mayor capacidad económica.}  
+
+Este cluster destaca por tener los ingresos más altos de la población y un número considerable de líneas 
+de crédito, incluidas líneas inmobiliarias. La morosidad es baja y la utilización del crédito rotativo es 
+moderada, lo que indica control y diversificación financiera. Corresponde a clientes con una posición 
+económica más sólida y un nivel alto de actividad en el sistema financiero.
+
+\textbf{Cluster 4: Perfil sobreendeudado.}  
+
+El rasgo más notable de este cluster es su \textit{DebtRatio} extremadamente elevado, indicando que una 
+fracción muy alta del ingreso declarado se destina al pago de deudas y gastos. Aunque los indicadores de 
+morosidad no son tan extremos como en el cluster 1, sí muestra señales claras de estrés financiero. La 
+actividad crediticia es relativamente alta, pero los ingresos se mantienen en niveles medios, lo que 
+contribuye al sobreendeudamiento observado.
+
+\textbf{Cluster 1: Morosidad extrema y actividad crediticia mínima (outlier).} 
+
+Este grupo, el más pequeño de todos (0.15\%), presenta valores extraordinariamente altos en todos 
+los indicadores de morosidad (30--59, 60--89 y 90+ días de atraso), así como ingresos bajos y casi 
+ninguna línea de crédito activa. Su comportamiento lo distingue de manera clara del resto de la población, 
+por lo que fue tratado como un outlier en algunas visualizaciones. Representa un perfil de riesgo máximo, 
+asociado a incumplimientos continuos y ausencia de participación estable en el sistema crediticio.
+
+En conjunto, estos cinco perfiles muestran la diversidad de comportamientos financieros presentes en 
+la población analizada y permiten interpretar la segmentación no supervisada de manera significativa. 
+Cada cluster refleja un tipo de cliente distinto, con condiciones económicas y hábitos crediticios 
+particulares, lo cual es útil para análisis posteriores relacionados con riesgo, solvencia o posibles 
+estrategias de intervención.
+
+\section{Discusión}
+
+Los resultados obtenidos permiten apreciar que el proceso de segmentación identifica patrones financieros 
+coherentes y consistentes con dinámicas reales de endeudamiento y comportamiento crediticio. La estructura 
+revelada por los cinco clusters no surge únicamente de diferencias marginales, sino de combinaciones claras 
+de variables que representan dimensiones económicas fundamentales: estabilidad, capacidad de pago, intensidad 
+crediticia y riesgo de incumplimiento.
+
+Una observación relevante es que los perfiles no se distribuyen de manera uniforme dentro de la población. 
+La mayor parte de los individuos pertenece a clusters con comportamiento relativamente estable, mientras 
+que los grupos más vulnerables o con señales de sobreendeudamiento representan proporciones menores. Esto 
+sugiere que el conjunto de clientes no está compuesto mayoritariamente por usuarios de riesgo extremo, 
+sino por personas con hábitos financieros diversos en distintos grados de madurez y estabilidad económica.
+
+Otro punto importante es la presencia del cluster~1, cuyo comportamiento atípico evidencia que la población 
+contiene un subconjunto de individuos con dificultades severas y sostenidas en su historial de pago. Este grupo, 
+si bien minoritario, tiene un impacto relevante para cualquier análisis de riesgo, pues concentra valores 
+extremos que en muchos casos distorsionan representaciones visuales o medidas globales. Su identificación 
+confirma la utilidad del aprendizaje no supervisado para detectar segmentos que no serían visibles mediante análisis 
+unidimensionales.
+
+Finalmente, la coexistencia de clusters con características contrastantes por ejemplo, el grupo de 
+alto ingreso y alta actividad crediticia frente al grupo sobreendeudado, muestra que la heterogeneidad 
+del conjunto no se explica únicamente por el nivel de ingreso, sino por la interacción entre múltiples 
+dimensiones financieras. En este sentido, el uso combinado de PCA y K-Means permitió capturar la estructura 
+del conjunto con una representación clara y útil para su interpretación.
+
+\section{Conclusiones, limitaciones y supuestos}
+
+El análisis realizado permitió construir una segmentación no supervisada de clientes basada en características 
+financieras de uso del crédito, morosidad, endeudamiento e ingreso. La metodología empleada, que combina un 
+preprocesamiento cuidadoso, una reducción de dimensionalidad mediante PCA y un modelo de agrupamiento tipo K-Means, 
+proporcionó cinco perfiles claramente diferenciados. Estos perfiles ofrecen una visión estructurada de la población 
+y permiten identificar comportamientos financieros que van desde la estabilidad y el uso prudente del crédito hasta 
+el sobreendeudamiento y la morosidad extrema.
+
+Una conclusión importante es que la estructura identificada no depende de una única variable, sino de la interacción 
+entre múltiples dimensiones financieras. Esto refuerza la utilidad de los métodos no supervisados para descubrir 
+patrones que no son evidentes mediante análisis directos o modelos univariados. Al mismo tiempo, la segmentación 
+obtenida puede servir como base para análisis posteriores, por ejemplo, estudios de riesgo crediticio, estrategias de 
+intervención o modelos supervisados que utilicen los clusters como características adicionales.
+
+\subsection*{Limitaciones}
+
+A pesar de los resultados obtenidos, el estudio presenta algunas limitaciones que deben considerarse:
+
+\begin{itemize}
+    \item \textbf{Calidad y distribución de los datos.} El conjunto contiene variables con fuerte asimetría y valores 
+    extremos que, aunque suavizados mediante winsorización, pueden influir en la estabilidad de los componentes principales y los centroides del clustering.
+    \item \textbf{Ausencia de información temporal.} Los datos representan un corte transversal; no es posible analizar la evolución financiera de los 
+    individuos ni inferir transiciones entre perfiles.
+    \item \textbf{Dependencia del método elegido.} K-Means asume clusters esféricos y separados principalmente por distancia euclidiana. 
+    Otros métodos (GMM, clustering jerárquico o DBSCAN) podrían revelar estructuras diferentes.
+    \item \textbf{Tamaño altamente desigual de los grupos.} La presencia de un cluster extremadamente pequeño pero muy atípico plantea desafíos interpretativos y 
+    puede requerir un tratamiento especial en aplicaciones reales de riesgo.
+\end{itemize}
+
+\subsection*{Supuestos}
+
+El análisis se desarrolló bajo varios supuestos:
+
+\begin{itemize}
+    \item El preprocesamiento aplicado (imputación, truncamiento y estandarización) conserva de manera adecuada la estructura financiera del conjunto.
+    \item Los componentes principales utilizados capturan la mayor parte de la variabilidad relevante para el agrupamiento.
+    \item La elección de $k=5$, si bien guiada por criterios estadísticos, también responde a consideraciones interpretativas y prácticas.
+    \item Las medias dentro de cada cluster son representativas de su perfil general, aun cuando algunos grupos presenten alta variabilidad interna.
+\end{itemize}
+
+En conjunto, el estudio ofrece una segmentación robusta y útil, con una interpretación clara y sustento estadístico. Sin embargo, sus conclusiones deben entenderse dentro del marco de las decisiones metodológicas y los supuestos adoptados, lo que abre la puerta a futuras extensiones, refinamientos o comparaciones con otros enfoques de análisis.
 
 
+\section{Referencias}
 
+\begin{itemize}[leftmargin=1.2cm]
+
+\item Everitt, B., Landau, S., Leese, M., \& Stahl, D. (2011). \textit{Cluster Analysis} (5th ed.). Wiley.
+
+\item Jain, A. K. (2010). Data clustering: 50 years beyond K-means. \textit{Pattern Recognition Letters}, 31(8), 651–666.
+
+\item Jolliffe, I. T. (2002). \textit{Principal Component Analysis} (2nd ed.). Springer.
+
+\item Kaggle. (2011). \textit{Give Me Some Credit - Credit Risk Dataset}. Recuperado de: \url{https://www.kaggle.com/c/GiveMeSomeCredit}
+
+\item Lloyd, S. (1982). Least squares quantization in PCM. \textit{IEEE Transactions on Information Theory}, 28(2), 129–137.
+
+\end{itemize}
 
 \end{document}
+
 

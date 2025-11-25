@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.22)  24 NOV 2025 22:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.22)  25 NOV 2025 01:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -412,7 +412,23 @@ Package: enumitem 2025/02/06 v3.11 Customized lists
 \enit@inbox=\box57
 \enit@count@id=\count317
 \enitdp@description=\count318
-) (C:\Users\deban\AppData\Local\Programs\MiKTeX\tex/latex/colortbl\colortbl.sty
+) (C:\Users\deban\AppData\Local\Programs\MiKTeX\tex/latex/pdflscape\pdflscape.sty
+Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
+ (C:\Users\deban\AppData\Local\Programs\MiKTeX\tex/latex/pdflscape\pdflscape-nometadata.sty
+Package: pdflscape-nometadata 2022-10-28 v0.13 Display of landscape pages in PDF (HO)
+ (C:\Users\deban\AppData\Local\Programs\MiKTeX\tex/latex/graphics\lscape.sty
+Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
+ (C:\Users\deban\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+ (C:\Users\deban\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+) (C:\Users\deban\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+))
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+)) (C:\Users\deban\AppData\Local\Programs\MiKTeX\tex/latex/colortbl\colortbl.sty
 Package: colortbl 2024/10/29 v1.0k Color table columns (DPC)
  (C:\Users\deban\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
 Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
@@ -439,15 +455,6 @@ Package: pgfrcs 2025-08-29 v3.1.11a (3.1.11a)
 Package: pgf 2025-08-29 v3.1.11a (3.1.11a)
  (C:\Users\deban\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgfcore.sty (C:\Users\deban\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
 Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
- (C:\Users\deban\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
-Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
- (C:\Users\deban\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
-Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
-) (C:\Users\deban\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
-File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
-)
-Package graphics Info: Driver file: pdftex.def on input line 106.
-)
 \Gin@req@height=\dimen197
 \Gin@req@width=\dimen198
 ) (C:\Users\deban\AppData\Local\Programs\MiKTeX\tex/latex/pgf/systemlayer\pgfsys.sty (C:\Users\deban\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsys.code.tex
@@ -760,7 +767,8 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \float@box=\box72
 \@float@everytoks=\toks52
 \@floatcapt=\box73
-) (C:\Users\deban\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
+)
+(C:\Users\deban\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \heavyrulewidth=\dimen316
 \lightrulewidth=\dimen317
@@ -797,8 +805,7 @@ Package caption Info: Standard document class detected.
 \c@continuedfloat=\count358
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
-)
-(C:\Users\deban\AppData\Local\Programs\MiKTeX\tex/latex/siunitx\siunitx.sty
+) (C:\Users\deban\AppData\Local\Programs\MiKTeX\tex/latex/siunitx\siunitx.sty
 Package: siunitx 2025-07-09 v3.4.14 A comprehensive (SI) units package
 \l__siunitx_number_uncert_offset_int=\count359
 \l__siunitx_number_exponent_fixed_int=\count360
@@ -1068,12 +1075,12 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count390
 )
-LaTeX Font Info:    Trying to load font information for T1+ntxtlf on input line 119.
+LaTeX Font Info:    Trying to load font information for T1+ntxtlf on input line 121.
  (C:\Users\deban\AppData\Local\Programs\MiKTeX\tex/latex/newtx\t1ntxtlf.fd
 File: t1ntxtlf.fd 2021/05/24 v1.1 font definition file for T1/ntx/tlf
 )
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 12.0pt on input line 119.
+(Font)              scaled to size 12.0pt on input line 121.
  (reporte.aux
 LaTeX Info: Redefining \. on input line 12.
 LaTeX Info: Redefining \% on input line 12.
@@ -1082,53 +1089,53 @@ Package babel Info: 'spanish' activates 'spanish' shorthands.
 )
 \openout1 = `reporte.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 119.
-LaTeX Font Info:    Trying to load font information for OML+ntxmi on input line 119.
+LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 121.
+LaTeX Font Info:    Trying to load font information for OML+ntxmi on input line 121.
  (C:\Users\deban\AppData\Local\Programs\MiKTeX\tex/latex/newtx\omlntxmi.fd
 File: omlntxmi.fd 2015/08/25 Fontinst v1.933 font definitions for OML/ntxmi.
 )
-LaTeX Font Info:    ... okay on input line 119.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 119.
-LaTeX Font Info:    ... okay on input line 119.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 119.
-LaTeX Font Info:    ... okay on input line 119.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 119.
-LaTeX Font Info:    ... okay on input line 119.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 119.
-LaTeX Font Info:    ... okay on input line 119.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 119.
-LaTeX Font Info:    ... okay on input line 119.
-LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 119.
-LaTeX Font Info:    Trying to load font information for U+ntxexa on input line 119.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 121.
+LaTeX Font Info:    Trying to load font information for U+ntxexa on input line 121.
  (C:\Users\deban\AppData\Local\Programs\MiKTeX\tex/latex/newtx\untxexa.fd
 File: untxexa.fd 2012/04/16 Fontinst v1.933 font definitions for U/ntxexa.
 )
-LaTeX Font Info:    ... okay on input line 119.
-LaTeX Font Info:    Checking defaults for LMS/ntxsy/m/n on input line 119.
-LaTeX Font Info:    Trying to load font information for LMS+ntxsy on input line 119.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for LMS/ntxsy/m/n on input line 121.
+LaTeX Font Info:    Trying to load font information for LMS+ntxsy on input line 121.
  (C:\Users\deban\AppData\Local\Programs\MiKTeX\tex/latex/newtx\lmsntxsy.fd
 File: lmsntxsy.fd 2016/07/02 Fontinst v1.933 font definitions for LMS/ntxsy.
 )
-LaTeX Font Info:    ... okay on input line 119.
-LaTeX Font Info:    Checking defaults for LMX/ntxexx/m/n on input line 119.
-LaTeX Font Info:    Trying to load font information for LMX+ntxexx on input line 119.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for LMX/ntxexx/m/n on input line 121.
+LaTeX Font Info:    Trying to load font information for LMX+ntxexx on input line 121.
  (C:\Users\deban\AppData\Local\Programs\MiKTeX\tex/latex/newtx\lmxntxexx.fd
 File: lmxntxexx.fd 2016/07/03 Fontinst v1.933 font definitions for LMX/ntxexx.
 )
-LaTeX Font Info:    ... okay on input line 119.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 119.
-LaTeX Font Info:    ... okay on input line 119.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 119.
-LaTeX Font Info:    ... okay on input line 119.
-LaTeX Info: Redefining \. on input line 119.
-LaTeX Info: Redefining \% on input line 119.
-LaTeX Info: Redefining \microtypecontext on input line 119.
-Package microtype Info: Applying patch `item' on input line 119.
-Package microtype Info: Applying patch `toc' on input line 119.
-Package microtype Info: Applying patch `eqnum' on input line 119.
-Package microtype Info: Applying patch `footnote' on input line 119.
-Package microtype Info: Applying patch `verbatim' on input line 119.
-LaTeX Info: Redefining \microtypesetup on input line 119.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Info: Redefining \. on input line 121.
+LaTeX Info: Redefining \% on input line 121.
+LaTeX Info: Redefining \microtypecontext on input line 121.
+Package microtype Info: Applying patch `item' on input line 121.
+Package microtype Info: Applying patch `toc' on input line 121.
+Package microtype Info: Applying patch `eqnum' on input line 121.
+Package microtype Info: Applying patch `footnote' on input line 121.
+Package microtype Info: Applying patch `verbatim' on input line 121.
+LaTeX Info: Redefining \microtypesetup on input line 121.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -1168,8 +1175,8 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 \c@mv@tabular=\count397
 \c@mv@boldtabular=\count398
-LaTeX Info: Command `\dddot' is already robust on input line 119.
-LaTeX Info: Command `\ddddot' is already robust on input line 119.
+LaTeX Info: Command `\dddot' is already robust on input line 121.
+LaTeX Info: Command `\ddddot' is already robust on input line 121.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1205,7 +1212,7 @@ LaTeX Info: Command `\ddddot' is already robust on input line 119.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring ON on input line 119.
+Package hyperref Info: Link coloring ON on input line 121.
 (reporte.out) (reporte.out)
 \@outlinefile=\write4
 \openout4 = `reporte.out'.
@@ -1216,270 +1223,275 @@ Package caption Info: End \AtBeginDocument code.
  (C:\Users\deban\AppData\Local\Programs\MiKTeX\tex/latex/translations/dicts\translations-basic-dictionary-spanish.trsl
 File: translations-basic-dictionary-spanish.trsl (spanish translation file `translations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' for `spanish'. on input line 119.
+Package translations Info: loading dictionary `translations-basic-dictionary' for `spanish'. on input line 121.
 \c@lstlisting=\count399
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 20.74pt on input line 123.
+(Font)              scaled to size 20.74pt on input line 125.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 20.74pt on input line 123.
+(Font)              scaled to size 20.74pt on input line 125.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.0pt on input line 127.
-LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input line 127.
+(Font)              scaled to size 10.0pt on input line 129.
+LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input line 129.
  (C:\Users\deban\AppData\Local\Programs\MiKTeX\tex/latex/newtx\ts1ntxtlf.fd
 File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
 )
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.0pt on input line 127.
-LaTeX Font Info:    Trying to load font information for T1+ntxtt on input line 128.
+(Font)              scaled to size 10.0pt on input line 129.
+LaTeX Font Info:    Trying to load font information for T1+ntxtt on input line 130.
  (C:\Users\deban\AppData\Local\Programs\MiKTeX\tex/latex/newtx\t1ntxtt.fd
 File: t1ntxtt.fd 2012/04/20 v3.1
 )
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 10.0pt on input line 128.
+(Font)              scaled to size 10.0pt on input line 130.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `ntxtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 14.4pt on input line 132.
+(Font)              scaled to size 14.4pt on input line 134.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 14.4pt on input line 132.
+(Font)              scaled to size 14.4pt on input line 134.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 12.0pt on input line 139.
-LaTeX Font Info:    Trying to load font information for OT1+minntx on input line 147.
+(Font)              scaled to size 12.0pt on input line 141.
+LaTeX Font Info:    Trying to load font information for OT1+minntx on input line 149.
  (C:\Users\deban\AppData\Local\Programs\MiKTeX\tex/latex/newtx\ot1minntx.fd
 File: ot1minntx.fd 2023/09/09 v1.1 font definition file for OT1/minntx
 )
 LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
-(Font)              scaled to size 12.0pt on input line 147.
+(Font)              scaled to size 12.0pt on input line 149.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `minntx' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
-(Font)              scaled to size 8.8pt on input line 147.
+(Font)              scaled to size 8.8pt on input line 149.
 LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
-(Font)              scaled to size 6.6pt on input line 147.
+(Font)              scaled to size 6.6pt on input line 149.
 LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 12.0pt on input line 147.
+(Font)              scaled to size 12.0pt on input line 149.
 LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 8.8pt on input line 147.
+(Font)              scaled to size 8.8pt on input line 149.
 LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 6.6pt on input line 147.
+(Font)              scaled to size 6.6pt on input line 149.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 12.0pt on input line 147.
+(Font)              scaled to size 12.0pt on input line 149.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 8.8pt on input line 147.
+(Font)              scaled to size 8.8pt on input line 149.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 6.6pt on input line 147.
+(Font)              scaled to size 6.6pt on input line 149.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 12.0pt on input line 147.
+(Font)              scaled to size 12.0pt on input line 149.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 8.8pt on input line 147.
+(Font)              scaled to size 8.8pt on input line 149.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 6.6pt on input line 147.
-LaTeX Font Info:    Trying to load font information for U+ntxmia on input line 147.
+(Font)              scaled to size 6.6pt on input line 149.
+LaTeX Font Info:    Trying to load font information for U+ntxmia on input line 149.
  (C:\Users\deban\AppData\Local\Programs\MiKTeX\tex/latex/newtx\untxmia.fd
 File: untxmia.fd 2024/04/09 Fontinst v1.933 font definitions for U/ntxmia.
 )
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 12.0pt on input line 147.
+(Font)              scaled to size 12.0pt on input line 149.
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 8.8pt on input line 147.
+(Font)              scaled to size 8.8pt on input line 149.
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 6.6pt on input line 147.
-LaTeX Font Info:    Trying to load font information for U+ntxsym on input line 147.
+(Font)              scaled to size 6.6pt on input line 149.
+LaTeX Font Info:    Trying to load font information for U+ntxsym on input line 149.
  (C:\Users\deban\AppData\Local\Programs\MiKTeX\tex/latex/newtx\untxsym.fd
 File: untxsym.fd 2023/08/16 Fontinst v1.933 font definitions for U/ntxsym.
 )
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 12.0pt on input line 147.
+(Font)              scaled to size 12.0pt on input line 149.
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 8.8pt on input line 147.
+(Font)              scaled to size 8.8pt on input line 149.
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 6.6pt on input line 147.
-LaTeX Font Info:    Trying to load font information for U+ntxsyc on input line 147.
+(Font)              scaled to size 6.6pt on input line 149.
+LaTeX Font Info:    Trying to load font information for U+ntxsyc on input line 149.
  (C:\Users\deban\AppData\Local\Programs\MiKTeX\tex/latex/newtx\untxsyc.fd
 File: untxsyc.fd 2012/04/12 Fontinst v1.933 font definitions for U/ntxsyc.
 )
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 12.0pt on input line 147.
+(Font)              scaled to size 12.0pt on input line 149.
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 8.8pt on input line 147.
+(Font)              scaled to size 8.8pt on input line 149.
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 6.6pt on input line 147.
+(Font)              scaled to size 6.6pt on input line 149.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 12.0pt on input line 147.
+(Font)              scaled to size 12.0pt on input line 149.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 8.8pt on input line 147.
+(Font)              scaled to size 8.8pt on input line 149.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 6.6pt on input line 147.
+(Font)              scaled to size 6.6pt on input line 149.
 LaTeX Font Info:    Font shape `OT1/minntx/b/n' will be
-(Font)              scaled to size 12.0pt on input line 147.
+(Font)              scaled to size 12.0pt on input line 149.
 LaTeX Font Info:    Font shape `OT1/minntx/b/n' will be
-(Font)              scaled to size 8.8pt on input line 147.
+(Font)              scaled to size 8.8pt on input line 149.
 LaTeX Font Info:    Font shape `OT1/minntx/b/n' will be
-(Font)              scaled to size 6.6pt on input line 147.
+(Font)              scaled to size 6.6pt on input line 149.
 LaTeX Font Info:    Font shape `OML/ntxmi/b/it' will be
-(Font)              scaled to size 12.0pt on input line 147.
+(Font)              scaled to size 12.0pt on input line 149.
 LaTeX Font Info:    Font shape `OML/ntxmi/b/it' will be
-(Font)              scaled to size 8.8pt on input line 147.
+(Font)              scaled to size 8.8pt on input line 149.
 LaTeX Font Info:    Font shape `OML/ntxmi/b/it' will be
-(Font)              scaled to size 6.6pt on input line 147.
+(Font)              scaled to size 6.6pt on input line 149.
 LaTeX Font Info:    Font shape `LMS/ntxsy/b/n' will be
-(Font)              scaled to size 12.0pt on input line 147.
+(Font)              scaled to size 12.0pt on input line 149.
 LaTeX Font Info:    Font shape `LMS/ntxsy/b/n' will be
-(Font)              scaled to size 8.8pt on input line 147.
+(Font)              scaled to size 8.8pt on input line 149.
 LaTeX Font Info:    Font shape `LMS/ntxsy/b/n' will be
-(Font)              scaled to size 6.6pt on input line 147.
+(Font)              scaled to size 6.6pt on input line 149.
 LaTeX Font Info:    Font shape `LMX/ntxexx/b/n' will be
-(Font)              scaled to size 12.0pt on input line 147.
+(Font)              scaled to size 12.0pt on input line 149.
 LaTeX Font Info:    Font shape `LMX/ntxexx/b/n' will be
-(Font)              scaled to size 8.8pt on input line 147.
+(Font)              scaled to size 8.8pt on input line 149.
 LaTeX Font Info:    Font shape `LMX/ntxexx/b/n' will be
-(Font)              scaled to size 6.6pt on input line 147.
+(Font)              scaled to size 6.6pt on input line 149.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 12.0pt on input line 165.
+(Font)              scaled to size 12.0pt on input line 167.
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 12.0pt on input line 168.
+(Font)              scaled to size 12.0pt on input line 170.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 10.0pt on input line 172.
+(Font)              scaled to size 10.0pt on input line 174.
  [1{C:/Users/deban/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/deban/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}
 
 {C:/Users/deban/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.enc}]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.95pt on input line 184.
+(Font)              scaled to size 10.95pt on input line 186.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 10.95pt on input line 184.
+(Font)              scaled to size 10.95pt on input line 186.
 LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
-(Font)              scaled to size 10.95pt on input line 187.
+(Font)              scaled to size 10.95pt on input line 189.
 LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
-(Font)              scaled to size 8.0pt on input line 187.
+(Font)              scaled to size 8.0pt on input line 189.
 LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
-(Font)              scaled to size 6.1pt on input line 187.
+(Font)              scaled to size 6.1pt on input line 189.
 LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 10.95pt on input line 187.
+(Font)              scaled to size 10.95pt on input line 189.
 LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 8.0pt on input line 187.
+(Font)              scaled to size 8.0pt on input line 189.
 LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 6.1pt on input line 187.
+(Font)              scaled to size 6.1pt on input line 189.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 10.95pt on input line 187.
+(Font)              scaled to size 10.95pt on input line 189.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 8.0pt on input line 187.
+(Font)              scaled to size 8.0pt on input line 189.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 6.1pt on input line 187.
+(Font)              scaled to size 6.1pt on input line 189.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 10.95pt on input line 187.
+(Font)              scaled to size 10.95pt on input line 189.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 8.0pt on input line 187.
+(Font)              scaled to size 8.0pt on input line 189.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 6.1pt on input line 187.
+(Font)              scaled to size 6.1pt on input line 189.
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 10.95pt on input line 187.
+(Font)              scaled to size 10.95pt on input line 189.
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 8.0pt on input line 187.
+(Font)              scaled to size 8.0pt on input line 189.
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 6.1pt on input line 187.
+(Font)              scaled to size 6.1pt on input line 189.
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 10.95pt on input line 187.
+(Font)              scaled to size 10.95pt on input line 189.
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 8.0pt on input line 187.
+(Font)              scaled to size 8.0pt on input line 189.
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 6.1pt on input line 187.
+(Font)              scaled to size 6.1pt on input line 189.
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 10.95pt on input line 187.
+(Font)              scaled to size 10.95pt on input line 189.
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 8.0pt on input line 187.
+(Font)              scaled to size 8.0pt on input line 189.
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 6.1pt on input line 187.
+(Font)              scaled to size 6.1pt on input line 189.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 10.95pt on input line 187.
+(Font)              scaled to size 10.95pt on input line 189.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 8.0pt on input line 187.
+(Font)              scaled to size 8.0pt on input line 189.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 6.1pt on input line 187.
+(Font)              scaled to size 6.1pt on input line 189.
 LaTeX Font Info:    Font shape `OT1/minntx/b/n' will be
-(Font)              scaled to size 10.95pt on input line 187.
+(Font)              scaled to size 10.95pt on input line 189.
 LaTeX Font Info:    Font shape `OT1/minntx/b/n' will be
-(Font)              scaled to size 8.0pt on input line 187.
+(Font)              scaled to size 8.0pt on input line 189.
 LaTeX Font Info:    Font shape `OT1/minntx/b/n' will be
-(Font)              scaled to size 6.1pt on input line 187.
+(Font)              scaled to size 6.1pt on input line 189.
 LaTeX Font Info:    Font shape `OML/ntxmi/b/it' will be
-(Font)              scaled to size 10.95pt on input line 187.
+(Font)              scaled to size 10.95pt on input line 189.
 LaTeX Font Info:    Font shape `OML/ntxmi/b/it' will be
-(Font)              scaled to size 8.0pt on input line 187.
+(Font)              scaled to size 8.0pt on input line 189.
 LaTeX Font Info:    Font shape `OML/ntxmi/b/it' will be
-(Font)              scaled to size 6.1pt on input line 187.
+(Font)              scaled to size 6.1pt on input line 189.
 LaTeX Font Info:    Font shape `LMS/ntxsy/b/n' will be
-(Font)              scaled to size 10.95pt on input line 187.
+(Font)              scaled to size 10.95pt on input line 189.
 LaTeX Font Info:    Font shape `LMS/ntxsy/b/n' will be
-(Font)              scaled to size 8.0pt on input line 187.
+(Font)              scaled to size 8.0pt on input line 189.
 LaTeX Font Info:    Font shape `LMS/ntxsy/b/n' will be
-(Font)              scaled to size 6.1pt on input line 187.
+(Font)              scaled to size 6.1pt on input line 189.
 LaTeX Font Info:    Font shape `LMX/ntxexx/b/n' will be
-(Font)              scaled to size 10.95pt on input line 187.
+(Font)              scaled to size 10.95pt on input line 189.
 LaTeX Font Info:    Font shape `LMX/ntxexx/b/n' will be
-(Font)              scaled to size 8.0pt on input line 187.
+(Font)              scaled to size 8.0pt on input line 189.
 LaTeX Font Info:    Font shape `LMX/ntxexx/b/n' will be
-(Font)              scaled to size 6.1pt on input line 187.
+(Font)              scaled to size 6.1pt on input line 189.
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 10.95pt on input line 193.
+(Font)              scaled to size 10.95pt on input line 195.
 
-Overfull \hbox (64.69063pt too wide) in paragraph at lines 196--196
+Overfull \hbox (64.69063pt too wide) in paragraph at lines 198--198
 []|\T1/ntxtt/m/n/10.95 RevolvingUtilizationOfUnsecuredLines| 
  []
 
 
-Overfull \hbox (64.69063pt too wide) in paragraph at lines 203--203
+Overfull \hbox (64.69063pt too wide) in paragraph at lines 205--205
 []|\T1/ntxtt/m/n/10.95 NumberOfTime30-59DaysPastDueNotWorse| 
  []
 
 
-Overfull \hbox (35.94696pt too wide) in paragraph at lines 213--213
+Overfull \hbox (35.94696pt too wide) in paragraph at lines 215--215
 []|\T1/ntxtt/m/n/10.95 NumberOfOpenCreditLinesAndLoans| 
  []
 
 
-Overfull \hbox (18.70076pt too wide) in paragraph at lines 219--219
+Overfull \hbox (18.70076pt too wide) in paragraph at lines 221--221
 []|\T1/ntxtt/m/n/10.95 NumberRealEstateLoansOrLines| 
  []
 
 
-Overfull \hbox (64.69063pt too wide) in paragraph at lines 222--222
+Overfull \hbox (64.69063pt too wide) in paragraph at lines 224--224
 []|\T1/ntxtt/m/n/10.95 NumberOfTime60-89DaysPastDueNotWorse| 
  []
 
 [2{C:/Users/deban/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc}]
-<../Figures/matriz_correlacion.png, id=93, 722.7pt x 578.16pt>
+<../Figures/matriz_correlacion.png, id=117, 773.0481pt x 657.657pt>
 File: ../Figures/matriz_correlacion.png Graphic file (type png)
 <use ../Figures/matriz_correlacion.png>
-Package pdftex.def Info: ../Figures/matriz_correlacion.png  used on input line 271.
-(pdftex.def)             Requested size: 337.31134pt x 269.84732pt.
+Package pdftex.def Info: ../Figures/matriz_correlacion.png  used on input line 273.
+(pdftex.def)             Requested size: 337.31134pt x 286.96156pt.
  [3 <../Figures/matriz_correlacion.png>]
-<../Figures/varianza_explicada_pca.png, id=102, 722.7pt x 433.62pt>
+<../Figures/varianza_explicada_pca.png, id=126, 722.7pt x 433.62pt>
 File: ../Figures/varianza_explicada_pca.png Graphic file (type png)
 <use ../Figures/varianza_explicada_pca.png>
-Package pdftex.def Info: ../Figures/varianza_explicada_pca.png  used on input line 304.
-(pdftex.def)             Requested size: 409.59708pt x 245.75665pt.
+Package pdftex.def Info: ../Figures/varianza_explicada_pca.png  used on input line 306.
+(pdftex.def)             Requested size: 457.78021pt x 274.67076pt.
  [4 <../Figures/varianza_explicada_pca.png>]
-<../Figures/metodo_del_codo_kmeans.png, id=110, 867.24pt x 361.35pt>
+<../Figures/metodo_del_codo_kmeans.png, id=134, 867.24pt x 361.35pt>
 File: ../Figures/metodo_del_codo_kmeans.png Graphic file (type png)
 <use ../Figures/metodo_del_codo_kmeans.png>
-Package pdftex.def Info: ../Figures/metodo_del_codo_kmeans.png  used on input line 333.
-(pdftex.def)             Requested size: 409.59708pt x 170.6671pt.
-<../Figures/silhouette_vs_k_kmeans.png, id=112, 867.24pt x 361.35pt>
+Package pdftex.def Info: ../Figures/metodo_del_codo_kmeans.png  used on input line 335.
+(pdftex.def)             Requested size: 419.2293pt x 174.6811pt.
+<../Figures/silhouette_vs_k_kmeans.png, id=136, 867.24pt x 361.35pt>
 File: ../Figures/silhouette_vs_k_kmeans.png Graphic file (type png)
 <use ../Figures/silhouette_vs_k_kmeans.png>
-Package pdftex.def Info: ../Figures/silhouette_vs_k_kmeans.png  used on input line 348.
-(pdftex.def)             Requested size: 409.59708pt x 170.6671pt.
- [5 <../Figures/metodo_del_codo_kmeans.png> <../Figures/silhouette_vs_k_kmeans.png>]
-<../Figures/heatmap_clusters.png, id=123, 722.7pt x 433.62pt>
+Package pdftex.def Info: ../Figures/silhouette_vs_k_kmeans.png  used on input line 350.
+(pdftex.def)             Requested size: 419.2293pt x 174.6811pt.
+ [5 <../Figures/metodo_del_codo_kmeans.png>] [6 <../Figures/silhouette_vs_k_kmeans.png>] [7]
+<../Figures/heatmap_clusters.png, id=158, 680.7834pt x 426.8748pt>
 File: ../Figures/heatmap_clusters.png Graphic file (type png)
 <use ../Figures/heatmap_clusters.png>
-Package pdftex.def Info: ../Figures/heatmap_clusters.png  used on input line 379.
-(pdftex.def)             Requested size: 414.41318pt x 248.64806pt.
- [6 <../Figures/heatmap_clusters.png>] (reporte.aux
+Package pdftex.def Info: ../Figures/heatmap_clusters.png  used on input line 433.
+(pdftex.def)             Requested size: 424.05275pt x 265.8907pt.
+<../Figures/segmentacion_radar_clusters.png, id=160, 717.1593pt x 595.9866pt>
+File: ../Figures/segmentacion_radar_clusters.png Graphic file (type png)
+<use ../Figures/segmentacion_radar_clusters.png>
+Package pdftex.def Info: ../Figures/segmentacion_radar_clusters.png  used on input line 451.
+(pdftex.def)             Requested size: 385.50183pt x 320.36383pt.
+ [8 <../Figures/heatmap_clusters.png>] [9 <../Figures/segmentacion_radar_clusters.png>] [10] [11] [12] (reporte.aux
 LaTeX Info: Redefining \. on input line 12.
 LaTeX Info: Redefining \% on input line 12.
 )
@@ -1488,20 +1500,20 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2020/03/25>
  ***********
 Package rerunfilecheck Info: File `reporte.out' has not changed.
-(rerunfilecheck)             Checksum: ED947C72D14DD3C34D31980979E63A89;1451.
+(rerunfilecheck)             Checksum: B56ED9C110DE782AF0DB0C1D704C1C5D;2673.
  ) 
 Here is how much of TeX's memory you used:
- 42219 strings out of 467871
- 863946 string characters out of 5418375
- 1290138 words of memory out of 5000000
- 70325 multiletter control sequences out of 15000+600000
- 711160 words of font info for 198 fonts, out of 8000000 for 9000
+ 42350 strings out of 467871
+ 867285 string characters out of 5418375
+ 1296958 words of memory out of 5000000
+ 70412 multiletter control sequences out of 15000+600000
+ 712077 words of font info for 208 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 102i,12n,117p,1086b,1100s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 89i,13n,117p,1086b,1243s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/deban/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/NewTXMI.pfb><C:/Users/deban/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmr.pfb><C:/Users/deban/AppData/Local/Programs/MiKTeX/fonts/type1/public/txfonts/t1xtt.pfb><C:/Users/deban/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txmiaX.pfb><C:/Users/deban/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txsys.pfb><C:/Users/deban/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmb.pfb><C:/Users/deban/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmr.pfb><C:/Users/deban/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmri.pfb>
-Output written on reporte.pdf (6 pages, 1094466 bytes).
+Output written on reporte.pdf (12 pages, 1709098 bytes).
 PDF statistics:
- 175 PDF objects out of 1000 (max. 8388607)
- 21 named destinations out of 1000 (max. 500000)
- 32502 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 235 PDF objects out of 1000 (max. 8388607)
+ 35 named destinations out of 1000 (max. 500000)
+ 32555 words of extra memory for PDF output out of 35830 (max. 10000000)
 

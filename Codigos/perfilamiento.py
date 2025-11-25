@@ -112,7 +112,8 @@ def create_radar(df, title, palette):
     
     plt.title(title, size=16, y=1.1)
     plt.legend(loc='lower left', bbox_to_anchor=(1.05, 0.05), fontsize=10)
-    plt.savefig('./Figures/segmentacion_radar_clusters.png', dpi=300)
+    plt.tight_layout()
+    plt.savefig('./Figures/segmentacion_radar_clusters.png', dpi=300, bbox_inches='tight')
     plt.show()
     plt.close()
 
@@ -148,6 +149,6 @@ plt.xlabel("Cluster")
 plt.ylabel("Variable")
 plt.yticks(rotation=0)        # nombres de variables horizontales
 plt.tight_layout()
-plt.savefig("./Figures/heatmap_clusters.png", dpi=300)
+plt.savefig("./Figures/heatmap_clusters.png", dpi=300, bbox_inches='tight')
 plt.show()
 plt.close()

@@ -131,7 +131,7 @@ sns.heatmap(corr, cmap='coolwarm', center=0)
 plt.title('Matriz de Correlación', fontsize=16, pad=15)
 plt.xticks(rotation=45, ha='right')
 plt.yticks(rotation=0)
-plt.savefig('./Figures/matriz_correlacion.png', dpi=300)
+plt.savefig('./Figures/matriz_correlacion.png', dpi=300, bbox_inches='tight')
 plt.tight_layout()
 plt.close()
 #---------------------------------------------------------
