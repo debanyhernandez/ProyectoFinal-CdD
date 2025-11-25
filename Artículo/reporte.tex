@@ -93,7 +93,8 @@
 \usepackage[font=small,labelfont=bf,labelsep=period]{caption}
 \usepackage{siunitx}
 \sisetup{detect-all,output-decimal-marker={.}}
-\graphicspath{{Figures/}}
+\graphicspath{{../Figures/}}
+
 %\usepackage[table]{xcolor} 
 
 % Listas
@@ -161,8 +162,6 @@ forma a los distintos tipos de clientes. El resultado es un análisis que combin
 de la Ciencia de Datos dentro del ámbito del endeudamiento personal. 
 
 \section{Exploración inicial de los datos}
-
-\subsection{Datos}
 El análisis se basa en el conjunto de datos \textit{Give Me Some Credit}, el cual contiene información financiera y demográfica 
 a nivel individual. Cada fila corresponde a un cliente distinto y resume su situación creditica en un momento específico, a 
 partir de un conjunto de variables cuantitativas relacionadas con ingreso, endeudamiento, uso del crédito y comportamiento 
@@ -230,6 +229,25 @@ Cantidad de dependientes económicos del cliente. \\
 \end{tabular}
 \end{table}
 
+\section{Metodología}
+
+En esta etapa, el análisis se desarrolló siguiendo un flujo de trabajo estructurado que permite 
+transformar la base de datos original en una representación más estable y útil para descubrir 
+patrones. Dado que la información financiera suele presentar irregularidades importantes, distribuciones 
+muy sesgadas, outliers y escalas poco comparables, el primer paso consistió en preparar 
+cuidadosamente las variables para asegurar que todas aportaran de manera equilibrada al modelo.
+
+Una vez obtenidos los datos en condiciones adecuadas, se aplicó una reducción de dimensionalidad 
+mediante Análisis de Componentes Principales (PCA), con el fin de concentrar la mayor parte de la 
+variabilidad del conjunto en unas cuantas dimensiones interpretables. Este espacio reducido facilita 
+tanto la visualización como la separación de los individuos en grupos más homogéneos.
+
+Finalmente, sobre la representación generada por PCA se llevó a cabo un proceso de agrupamiento no 
+supervisado mediante K-Means, buscando identificar perfiles de clientes con características 
+financieras similares. Las etapas que siguen describen con detalle cada una de estas fases: desde el 
+preprocesamiento hasta la construcción de los clusters finales.
+
+
 \subsection{Preprocesamiento}
 El preprocesamiento fue una etapa esencial debido a la presencia de outliers, datos faltantes y distribuciones altamente 
 asimétricas, todas características comunes en información financiera. El objetivo de esta fue obtener un conjunto de datos 
@@ -239,6 +257,20 @@ En primer lugar, se eliminaron los registros duplicados y un único caso con eda
 estudio. Posteriormente, se atendieron los valores faltantes: \texttt{MonthlyIncome} presentaba aproximadamente 5,400 
 observaciones vacías, que fueron imputadas mediante la mediana de la distribución, una estrategia adecuada dada su fuerte asimetría. 
 Para \texttt{NumberOfDependents} se empleó la moda, pues la mayoría de los clientes declara entre cero y dos dependientes. 
+
+Antes de aplicar transformaciones adicionales, se examinó la matriz de correlación de las variables financieras. Esta permitió 
+identificar que, si bien existen asociaciones relevantes entre ciertos pares por ejemplo, entre las distintas medidas de morosidad o 
+entre el nivel de ingreso y la actividad crediticia, muchas de las correlaciones son de magnitud moderada o baja. Esta estructura 
+sugiere que las variables capturan dimensiones distintas del comportamiento financiero y que ninguna domina por completo a las demás. 
+El patrón observado respalda el uso de una técnica de reducción de dimensionalidad como PCA, capaz de sintetizar información dispersa 
+en múltiples sentidos de variación.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7
+    \textwidth]{matriz_correlacion.png}
+    \caption{Matriz de correlación del conjunto de variables financieras.}
+\end{figure}
 
 Un análisis exploratorio reveló la existencia de valores extremadamente grandes en variables como 
 \texttt{RevolvingUtilizationOfUnsecuredLines} y \texttt{DebtRatio}. Estos valores, aunque plausibles en ciertos contextos de 
@@ -250,6 +282,111 @@ Una vez estabilizadas las distribuciones, todas las variables fueron estandariza
 garantiza que cada variable contribuya en igualdad de condiciones al análisis, evitando que aquellas con rangos grandes dominen los 
 componentes principales o los centroides del clustering. El resultado final de esta etapa fue un conjunto limpio, sin valores 
 faltantes, con outliers suavizados y todas las variables expresadas en una escala comparable. 
+
+
+\subsection{Reducción de dimensionalidad mediante PCA}
+
+Una vez que las variables estuvieron depuradas y estandarizadas, se aplicó un Análisis de Componentes Principales (PCA) con 
+el objetivo de sintetizar la información esencial del conjunto en un número reducido de dimensiones. 
+Esta técnica permite identificar combinaciones lineales de las variables originales que concentran la mayor parte de la 
+variabilidad total, lo cual resulta especialmente útil cuando se trabaja con datos altamente correlacionados o con estructuras 
+difíciles de visualizar directamente.
+
+El PCA se estimó inicialmente sin fijar un número específico de componentes, permitiendo analizar la proporción de varianza 
+capturada por cada dirección principal. La Figura~\ref{fig:varianza-pca} muestra tanto la varianza explicada individual como 
+la acumulada. A partir de este análisis, se observó que los primeros seis componentes concentran aproximadamente el 87.6\% de 
+la variabilidad total, proporción suficiente para conservar la estructura global de los datos sin incluir dimensiones dominadas 
+por ruido o fluctuaciones menores. En consecuencia, el análisis posterior se realizó únicamente sobre este espacio reducido de 
+seis dimensiones.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{varianza_explicada_pca.png}
+    \caption{Varianza explicada por cada componente principal y varianza acumulada.}
+    \label{fig:varianza-pca}
+\end{figure}
+
+Además de la reducción en la complejidad, el PCA facilita una interpretación cualitativa de los patrones subyacentes. 
+El examen de los \textit{loadings} mostró que ciertos componentes están fuertemente asociados al nivel general de endeudamiento, mientras 
+que otros reflejan principalmente la morosidad, la actividad crediticia o la capacidad económica. Estas relaciones permiten entender 
+qué factores impulsan las diferencias entre los individuos y proporcionan un marco interpretativo sólido para el paso final 
+de agrupamiento.
+
+En conjunto, el uso de PCA no solo mejora la estabilidad del modelo de clustering, sino que también aporta una representación 
+más clara y manejable de la estructura del conjunto de datos.
+
+\subsection{Construcción del modelo de agrupamiento}
+
+Una vez definido el espacio reducido mediante PCA, el siguiente paso fue construir el modelo de agrupamiento sobre las seis 
+componentes principales. Para decidir cuántos grupos utilizar, se evaluaron distintos valores de $k$ en el rango de 2 a 10 
+aplicando el algoritmo K-Means sobre el DataFrame transformado (\texttt{df\_pca}). Para cada valor de $k$ se calcularon 
+dos cantidades: la inercia (suma de distancias cuadráticas de cada punto a su centroide) y el coeficiente de Silhouette asociado 
+a la partición obtenida.
+
+La Figura~\ref{fig:elbow-kmeans} muestra el comportamiento de la inercia en función de $k$. Como es de esperarse, la inercia 
+disminuye de manera monótona al aumentar el número de clusters, pero la tasa de descenso no es constante. Se observa una 
+caída pronunciada entre $k = 2$ y $k \approx 4$–$6$, seguida de una zona donde la curva se aplana. Este “codo” sugiere que 
+a partir de cinco grupos los beneficios de seguir aumentando $k$ son marginales en términos de reducción de inercia.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{metodo_del_codo_kmeans.png}
+    \caption{Método del codo para distintos valores de $k$ en el modelo K-Means.}
+    \label{fig:elbow-kmeans}
+\end{figure}
+
+De manera complementaria, la Figura~\ref{fig:silhouette} muestra el coeficiente de Silhouette promedio para los 
+mismos valores de $k$. El valor más alto se obtiene en $k = 2$, lo que refleja una separación muy marcada entre dos 
+grandes grupos de individuos. Sin embargo, a partir de $k = 3$ los valores de Silhouette se estabilizan en un rango 
+cercano a $0.25$–$0.30$, indicando que es posible considerar particiones más finas sin perder coherencia en la separación 
+entre clusters. En particular, los valores alcanzados para $k = 5$ son comparables a los de otros modelos con $k > 2$, 
+pero permiten distinguir matices adicionales en los patrones de endeudamiento y morosidad que quedarían ocultos en una 
+segmentación demasiado gruesa.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{silhouette_vs_k_kmeans.png}
+    \caption{Coeficiente de Silhouette promedio para $k$ entre 2 y 10.}
+    \label{fig:silhouette}
+\end{figure}
+
+Con base en ambos criterios y en la interpretabilidad de los perfiles resultantes, se fijó $k = 5$ como 
+número de clusters para el modelo final. Las etiquetas obtenidas se incorporaron posteriormente al conjunto limpio 
+original (\texttt{df\_clustering}) para formar el DataFrame \texttt{df\_resultado}, que se utiliza en la sección 
+de resultados para analizar y describir en detalle los perfiles de endeudamiento correspondientes a cada cluster.
+
+\section{Resultados}
+
+Una vez ajustado el modelo de agrupamiento, el análisis se centró en caracterizar los perfiles financieros que emergen 
+de los cinco clusters seleccionados. Para ello se emplearon tanto métricas descriptivas como visualizaciones que permiten 
+comparar los grupos en términos de morosidad, actividad crediticia, endeudamiento y capacidad económica.
+
+Antes de presentar las figuras principales, se realizó una inspección general de los datos proyectados en el espacio 
+PCA y de la distribución de variables clave mediante boxplots. Estas visualizaciones
+confirmaron que los grupos presentan patrones distinguibles en las componentes principales y diferencias marcadas en 
+variables como ingresos, deuda relativa y líneas de crédito abiertas. Esto proporcionó una primera evidencia de que 
+los clusters reflejan comportamientos financieros heterogéneos.
+
+\subsection{Mapa de calor de medias normalizadas}
+
+Para comparar de manera directa la posición relativa de cada grupo en todas las variables, se construyó un mapa de 
+calor basado en medias normalizadas mediante \textit{z-score}. La Figura~\ref{fig:heatmap-clusters} muestra este 
+resumen, donde valores positivos (en tonos rojos) representan niveles por encima del promedio poblacional, 
+mientras que valores negativos (en tonos azules) corresponden a niveles inferiores.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.86\textwidth]{heatmap_clusters.png}
+    \caption{Mapa de calor de medias normalizadas (z-score) para las variables financieras según cluster.}
+    \label{fig:heatmap-clusters}
+\end{figure}
+
+El mapa de calor revela contrastes claros entre los grupos. Algunos clusters exhiben valores elevados en 
+indicadores de morosidad, mientras que otros destacan por ingresos altos o mayor actividad crediticia. Asimismo, 
+ciertos grupos combinan baja utilización del crédito con niveles relativamente moderados de deuda, lo que sugiere 
+comportamientos estables. Estas diferencias estructurales confirman que el modelo captura perfiles financieros 
+distintos y consistentes con dimensiones económicas reales.
+
 
 
 

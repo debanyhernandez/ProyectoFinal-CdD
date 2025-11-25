@@ -143,7 +143,7 @@ sns.heatmap(
     linewidths=0.5,
     cbar_kws={"shrink": 0.8}
 )
-plt.title("Heatmap – Medias normalizadas por variable y cluster (z-score)", fontsize=16)
+plt.title("Heatmap – Medias normalizadas por variable y cluster", fontsize=16)
 plt.xlabel("Cluster")
 plt.ylabel("Variable")
 plt.yticks(rotation=0)        # nombres de variables horizontales
