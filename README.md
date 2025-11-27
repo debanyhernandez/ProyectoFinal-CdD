@@ -30,7 +30,6 @@ ProyectoFinal-CdD/
 │   └── reporte.pdf
 │
 ├── Presentacion/
-│   ├── presentacion.tex
 │   └── presentacion.pdf
 │
 ├── Codigos/
