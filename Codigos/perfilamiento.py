@@ -138,7 +138,7 @@ cluster_z = (cluster_means - cluster_means.mean()) / cluster_means.std()
 plt.figure(figsize=(10, 6))
 sns.heatmap(
     cluster_z.T,               
-    cmap="coolwarm",
+    cmap="BuPu",
     annot=True,
     fmt=".2f",
     linewidths=0.5,
